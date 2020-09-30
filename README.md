@@ -27,3 +27,4 @@ https://github.com/react-spring/gltfjsx
 https://threejsfundamentals.org/threejs/lessons/threejs-load-obj.html
 https://www.blendswap.com/blends
 https://www.blender.org/download/
+http://www.oyonale.com/modeles.php?lang=en&format=OBJ
