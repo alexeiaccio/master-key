@@ -32,7 +32,7 @@ const BoxesPage = () => {
   return [
     <h1>Click on me - Hover me :)</h1>,
     <Canvas camera={{ position: [0, 0, 35] }}>
-      <ambientLight intensity={2} />
+      <ambientLight intensity={3} />
       <pointLight position={[40, 40, 40]} />
       <MyBox position={[10, 0, 0]} />
       <MyBox position={[-10, 0, 0]} />
