@@ -1,16 +1,12 @@
-import Link from 'next/link'
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("../components/Map"), {
+  ssr: false,
+  loading: () => <p>...</p>,
+});
 
 const Index = () => {
-  return (
-    <div className="main">
-      <Link href="/birds">
-        <a>Birds Example</a>
-      </Link>
-      <Link href="/boxes">
-        <a>Boxes Example</a>
-      </Link>
-    </div>
-  )
-}
+  return <Map />;
+};
 
-export default Index
+export default Index;
