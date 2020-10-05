@@ -1,0 +1,38 @@
+[
+  {
+    "index": 0,
+    "type": "image",
+    "src": "/textures/000.png",
+    "shadow": false
+  },
+  {
+    "index": 1,
+    "type": "image",
+    "src": "/textures/001.png",
+    "shadow": false
+  },
+  {
+    "index": 2,
+    "type": "image",
+    "src": "/textures/002.png",
+    "shadow": false
+  },
+  {
+    "index": 3,
+    "type": "image",
+    "src": "/textures/003.png",
+    "shadow": false
+  },
+  {
+    "index": 4,
+    "type": "image",
+    "src": "/textures/004.png",
+    "shadow": false
+  },
+  {
+    "index": 5,
+    "type": "gif",
+    "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif",
+    "shadow": false
+  }
+]

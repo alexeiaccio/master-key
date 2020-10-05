@@ -11,6 +11,7 @@
     "@react-three/drei": "^2.0.0",
     "drei": "0.0.60",
     "next": "^9.5.4-canary.23",
+    "omggif": "^1.0.10",
     "react": "^17.0.0-rc.2",
     "react-dom": "^17.0.0-rc.2",
     "react-three-fiber": "^5.0.3",

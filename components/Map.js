@@ -138,7 +138,7 @@ export default function Map() {
       orthographic
       camera={{ position: [0, 0, 50], zoom: 50, up: [0, 0, 1], far: 10000 }}
     >
-      <color attach="background" args={[0xf3f3f3]} />
+      <color attach="background" args={[0xfff389]} />
       <ambientLight intensity={0.8} />
       <Suspense fallback={null}>
         <Simple />
