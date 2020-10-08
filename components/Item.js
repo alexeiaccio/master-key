@@ -1,10 +1,20 @@
-import { useMemo } from 'react'
-// import * as THREE from 'three'
-import { useAspect, Plane, PositionalAudio } from '@react-three/drei'
-import { useLoader } from 'react-three-fiber'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import * as THREE from 'three'
+import {
+  useAspect,
+  Plane,
+  PositionalAudio,
+  PerspectiveCamera,
+  OrbitControls,
+  useCamera,
+} from '@react-three/drei'
+import { useFrame, useLoader, createPortal, useThree } from 'react-three-fiber'
 import { TextureLoader } from 'three'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { draco } from 'drei'
 
 import GifLoader from '../lib/gif-loader'
+import { useTurnable } from '../hooks/useTurnable'
 
 function Image({ item, scale, ...props }) {
   const [scW, scH, csZ] = scale
@@ -24,8 +34,39 @@ function Image({ item, scale, ...props }) {
     </Plane>
   )
 }
+function Object({ item, ...props }) {
+  const group = useRef()
+  const ref = useTurnable()
+  const { nodes, materials } = useLoader(
+    GLTFLoader,
+    `/glb/${item.src}.gltf`,
+    draco()
+  )
+
+  return (
+    <group ref={group} {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group
+          ref={ref}
+          rotation={[0.24, -0.55, 0.56]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <mesh
+            material={materials.scene}
+            geometry={nodes.planet001.geometry}
+          />
+          <mesh
+            material={materials.scene}
+            geometry={nodes.planet001.geometry}
+          />
+          <pointLight position={[10, 10, 10]} intensity={0.5} />
+        </group>
+      </group>
+    </group>
+  )
+}
 function Video({ item, scale, ...props }) {
-  const [scW, scH, csZ] = scale
+  const [scW, _scH, csZ] = scale
   const video = useMemo(() => {
     const vid = document.createElement('video')
     vid.src = item.src
@@ -50,42 +91,35 @@ function Video({ item, scale, ...props }) {
       <meshBasicMaterial attach="material">
         <videoTexture attach="map" args={[video]} />
       </meshBasicMaterial>
-      <PositionalAudio url={item.src} loop distance={5} />
+      {/* <PositionalAudio url={item.src} loop distance={5} /> */}
     </mesh>
   )
 }
 function Gif({ item, scale, ...props }) {
   const [scW, scH, csZ] = scale
-  // instantiate a loader
+  const [h, setH] = useState(scH)
+  const [w, setW] = useState(scW)
+
   const loader = new GifLoader()
 
-  // load a image resource
   const map = loader.load(
-    // resource URL
     item.src,
-
-    // onLoad callback
     function read(reader) {
-      // You probably don't need to set onLoad, as it is handled for you. However,
-      // if you want to manipulate the reader, you can do so here:
-      console.log(reader.numFrames())
+      const ratio = reader.height / reader.width
+      const isVertical = ratio > 1
+      setH(isVertical ? scH : ratio * scW)
+      setW(isVertical ? scH / ratio : scW)
     },
-
-    // onProgress callback
     function pr(xhr) {
       console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`)
     },
-
-    // onError callback
     function cb() {
       console.error('An error happened.')
     }
   )
 
-  const h = map && map.image ? (map.image.height / map.image.width) * scW : scH
-
   return (
-    <Plane scale={[scW, h, csZ]} args={[0, 0, 1, 1]} {...props}>
+    <Plane scale={[w, h, csZ]} args={[0, 0, 1, 1]} {...props}>
       <meshBasicMaterial attach="material" map={map} transparent />
     </Plane>
   )
@@ -116,6 +150,15 @@ export default function Item({ position, index, item }) {
   if (item && item.type === 'video') {
     return (
       <Video
+        item={item}
+        scale={[w || scW, h || scH, csZ]}
+        position={[x, y, index]}
+      />
+    )
+  }
+  if (item && item.type === 'object') {
+    return (
+      <Object
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}

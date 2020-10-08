@@ -106,5 +106,11 @@
     "type": "gif",
     "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif",
     "shadow": false
+  },
+  {
+    "index": 18,
+    "type": "object",
+    "src": "planet",
+    "shadow": false
   }
 ]
