@@ -31,6 +31,78 @@
   },
   {
     "index": 5,
+    "type": "image",
+    "src": "/textures/005.png",
+    "shadow": false
+  },
+  {
+    "index": 6,
+    "type": "image",
+    "src": "/textures/006.png",
+    "shadow": false
+  },
+  {
+    "index": 7,
+    "type": "image",
+    "src": "/textures/007.png",
+    "shadow": false
+  },
+  {
+    "index": 8,
+    "type": "image",
+    "src": "/textures/008.png",
+    "shadow": false
+  },
+  {
+    "index": 9,
+    "type": "image",
+    "src": "/textures/009.png",
+    "shadow": false
+  },
+  {
+    "index": 10,
+    "type": "image",
+    "src": "/textures/010.png",
+    "shadow": false
+  },
+  {
+    "index": 11,
+    "type": "image",
+    "src": "/textures/011.png",
+    "shadow": false
+  },
+  {
+    "index": 12,
+    "type": "image",
+    "src": "/textures/012.png",
+    "shadow": false
+  },
+  {
+    "index": 13,
+    "type": "image",
+    "src": "/textures/013.png",
+    "shadow": false
+  },
+  {
+    "index": 14,
+    "type": "image",
+    "src": "/textures/014.png",
+    "shadow": false
+  },
+  {
+    "index": 15,
+    "type": "video",
+    "src": "/textures/100.mp4",
+    "shadow": false
+  },
+  {
+    "index": 16,
+    "type": "video",
+    "src": "/textures/101.png",
+    "shadow": false
+  },
+  {
+    "index": 17,
     "type": "gif",
     "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif",
     "shadow": false

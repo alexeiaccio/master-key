@@ -6,10 +6,17 @@ import GifLoader from "../lib/gif-loader";
 function Image({ item, scale, ...props }) {
   const [scW, scH, csZ] = scale;
   const [map] = useLoader(TextureLoader, [item.src]);
-  const h = map && map.image ? (map.image.height / map.image.width) * scW : scH;
+  const ratio = map.image.height / map.image.width;
+  const isVertical = ratio > 1;
+  const h = map && map.image ? ratio * scW : scH;
+  const w = map && map.image ? scH / ratio : scW;
 
   return (
-    <Plane scale={[scW, h, csZ]} args={[0, 0, 1, 1]} {...props}>
+    <Plane
+      scale={[isVertical ? w : scW, isVertical ? scH : h, csZ]}
+      args={[0, 0, 1, 1]}
+      {...props}
+    >
       <meshPhongMaterial attach="material" map={map} transparent />
     </Plane>
   );
