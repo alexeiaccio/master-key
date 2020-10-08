@@ -91,7 +91,7 @@ function Video({ item, scale, ...props }) {
       <meshBasicMaterial attach="material">
         <videoTexture attach="map" args={[video]} />
       </meshBasicMaterial>
-      {/* <PositionalAudio url={item.src} loop distance={5} /> */}
+      <PositionalAudio url={item.src} loop distance={5} />
     </mesh>
   )
 }
