@@ -1,6 +1,10 @@
-import { useAspect, Plane } from "@react-three/drei";
+// import { useMemo } from "react";
+// import * as THREE from "three";
+import { useAspect, Plane, Html } from "@react-three/drei";
+import { useCallback, useState, useRef } from "react";
 import { useLoader } from "react-three-fiber";
 import { TextureLoader } from "three";
+
 import GifLoader from "../lib/gif-loader";
 
 function Image({ item, scale, ...props }) {
@@ -18,6 +22,35 @@ function Image({ item, scale, ...props }) {
       {...props}
     >
       <meshPhongMaterial attach="material" map={map} transparent />
+    </Plane>
+  );
+}
+function Video({ item, ...props }) {
+  const video = useRef();
+  const [play, toggle] = useState(false);
+
+  const hanleClick = useCallback(() => {
+    if (video.current && video.current.play) {
+      try {
+        if (play) {
+          video.current.pause();
+        } else {
+          video.current.play();
+        }
+        toggle((x) => !x);
+      } catch (error) {
+        //
+      }
+    }
+  }, [video.current, play]);
+  return (
+    <Plane onClick={hanleClick} {...props}>
+      <meshBasicMaterial transparent />
+      <Html prepend center scaleFactor={0.03}>
+        <video ref={video} loop crossOrigin="anonymous" playsInline>
+          <source src={item.src} type="video/mp4" />
+        </video>
+      </Html>
     </Plane>
   );
 }
@@ -74,6 +107,15 @@ export default function Item({ position, index, item }) {
   if (item && item.type === "gif") {
     return (
       <Gif
+        item={item}
+        scale={[w || scW, h || scH, csZ]}
+        position={[x, y, index]}
+      />
+    );
+  }
+  if (item && item.type === "video") {
+    return (
+      <Video
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}
