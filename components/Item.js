@@ -47,7 +47,7 @@ function TextItem({ item, scale, ...props }) {
   useMemo(() => {
     fetch(item.src).then(async (x) => {
       const newText = await x.text()
-      setText(newText);
+      setText(newText)
     })
   }, [])
 
@@ -98,6 +98,7 @@ function Object({ item, ...props }) {
 }
 function Video({ item, scale, ...props }) {
   const [scW, _scH, csZ] = scale
+  const [play, setPlay] = useState(false)
   const video = useMemo(() => {
     const vid = document.createElement('video')
     vid.src = item.src
@@ -116,13 +117,26 @@ function Video({ item, scale, ...props }) {
     return vid
   }, [])
 
+  useEffect(() => {
+    const playNow = () => {
+      setPlay(true)
+    }
+    if (document !== undefined) {
+      if (!play) {
+        document.addEventListener('click', playNow)
+      } else {
+        document.removeEventListener('click', playNow)
+      }
+    }
+  }, [play, setPlay])
+
   return (
-    <mesh scale={[scW, scW / 1.5, csZ]} {...props}>
+    <mesh scale={[scW * 1.5, scW, csZ]} {...props}>
       <planeBufferGeometry attach="geometry" args={[1, 1]} />
       <meshBasicMaterial attach="material">
         <videoTexture attach="map" args={[video]} />
       </meshBasicMaterial>
-      <PositionalAudio url={item.sound} loop distance={5} />
+      {play ? <PositionalAudio url={item.sound} loop distance={5} /> : null}
     </mesh>
   )
 }

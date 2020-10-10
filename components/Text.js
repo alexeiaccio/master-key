@@ -1,7 +1,27 @@
 export default function Text() {
   return (
-    <div>
-      <div style={{ color: '#fff' }}>
+    <div className="text">
+      <style jsx>
+        {`
+          .text {
+            background-color: #fff;
+            border: 1px solid #000;
+            color: #000 !important;
+            font-size: 1rem;
+            font-family: monospace;
+            max-width: 50vw;
+            max-height: 50vh;
+            overflow: scroll;
+          }
+          .section {
+            padding: 2rem 1rem;
+          }
+          .section > div {
+            margin-bottom: 0.5rem;
+          }
+        `}
+      </style>
+      <div className="section" style={{ backgroundColor: '#fff' }}>
         <div>1. Пружина: сжатие, засада, напряжение перед прыжком</div>
         <div>2. Цель&nbsp;— какая? какая есть</div>
         <div>
@@ -118,7 +138,7 @@ export default function Text() {
           </em>
         </div>
       </div>
-      <div>
+      <div className="section" style={{ backgroundColor: '#fff389' }}>
         <div>
           33. «Easy Come, Easy&nbsp;Go (Легко пришло, легко ушло)»,
           Ян&nbsp;Стен, 1661. Аллегория, предостерегающая от&nbsp;игры
