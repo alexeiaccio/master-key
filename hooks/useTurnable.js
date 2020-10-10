@@ -1,11 +1,11 @@
-import { useRef } from "react";
-import { useFrame } from "react-three-fiber";
+import { useRef } from 'react'
+import { useFrame } from 'react-three-fiber'
 
-export function useTurnable() {
-  const ref = useRef();
+export function useTurnable(axis = 'z') {
+  const ref = useRef()
   useFrame(() => {
-    ref.current.rotation.z += 0.01;
-  });
+    ref.current.rotation[axis] += 0.01
+  })
 
-  return ref;
+  return ref
 }

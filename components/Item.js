@@ -4,6 +4,7 @@ import {
   useAspect,
   Plane,
   PositionalAudio,
+  Text,
   PerspectiveCamera,
   OrbitControls,
   useCamera,
@@ -17,7 +18,7 @@ import GifLoader from '../lib/gif-loader'
 import { useTurnable } from '../hooks/useTurnable'
 
 function Image({ item, scale, ...props }) {
-  const FACTOR = 2000
+  const FACTOR = 2500
   const [scW, scH, csZ] = scale
   const [map] = useLoader(TextureLoader, [item.src])
   const ratio = map.image.height / map.image.width
@@ -40,18 +41,45 @@ function Image({ item, scale, ...props }) {
     </Plane>
   )
 }
+function TextItem({ item, scale, ...props }) {
+  const [text, setText] = useState('')
+
+  useMemo(() => {
+    fetch(item.src).then(async (x) => {
+      const newText = await x.text()
+      setText(newText);
+    })
+  }, [])
+
+  return (
+    <group {...props} dispose={null}>
+      <Text
+        color={'#000'}
+        fontSize={0.3}
+        maxWidth={10}
+        lineHeight={1.2}
+        letterSpacing={0.05}
+        textAlign={'left'}
+        font={`/fonts/${item.font}`}
+        anchorX="center"
+        anchorY="middle"
+      >
+        {text}
+      </Text>
+    </group>
+  )
+}
 function Object({ item, ...props }) {
   const group = useRef()
-  const ref = useTurnable()
-  const { nodes, materials, ...rest } = useLoader(
+  const ref = useTurnable(item.rotation)
+  const { nodes, materials } = useLoader(
     GLTFLoader,
     `/glb/${item.src}`,
     draco()
   )
-
   return (
     <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
+      <group rotation={[0, 0, -Math.PI / 2]}>
         <group ref={ref} scale={[item.scale, item.scale, item.scale]}>
           {item.nodes.map(({ name, material }) => (
             <group key={name}>
@@ -64,7 +92,7 @@ function Object({ item, ...props }) {
           ))}
         </group>
       </group>
-      <pointLight position={[10, 10, 10]} intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={0.75} />
     </group>
   )
 }
@@ -94,7 +122,7 @@ function Video({ item, scale, ...props }) {
       <meshBasicMaterial attach="material">
         <videoTexture attach="map" args={[video]} />
       </meshBasicMaterial>
-      <PositionalAudio url={item.src} loop distance={5} />
+      <PositionalAudio url={item.sound} loop distance={5} />
     </mesh>
   )
 }
@@ -162,6 +190,15 @@ export default function Item({ position, index, item }) {
   if (item && item.type === 'object') {
     return (
       <Object
+        item={item}
+        scale={[w || scW, h || scH, csZ]}
+        position={[x, y, index]}
+      />
+    )
+  }
+  if (item && item.type === 'text') {
+    return (
+      <TextItem
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}

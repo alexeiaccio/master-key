@@ -77,12 +77,14 @@
   {
     "index": 15,
     "type": "video",
-    "src": "/textures/100.mp4"
+    "src": "/textures/100.mp4",
+    "sound": "/textures/100.mp3"
   },
   {
     "index": 16,
     "type": "video",
-    "src": "/textures/101.mp4"
+    "src": "/textures/101.mp4",
+    "sound": "/textures/101.mp3"
   },
   {
     "index": 17,
@@ -93,17 +95,25 @@
     "index": 18,
     "type": "object",
     "src": "planet.gltf",
-    "scale": 0.5,
+    "scale": 0.35,
+    "rotation": "x",
     "nodes": [{ "name": "planet001", "material": "scene" }]
   },
   {
     "index": 19,
     "type": "object",
-    "src": "keyhole.glb",
-    "scale": 0.01,
+    "src": "keys.gltf",
+    "scale": 0.2,
+    "rotation": "x",
     "nodes": [
-      { "name": "Spring001", "material": "02 - Default" },
-      { "name": "Cylinder003", "material": "04 - Default" }
+      { "name": "mesh_0", "material": "blinn1SG" },
+      { "name": "mesh_1", "material": "blinn1SG" }
     ]
+  },
+  {
+    "index": 20,
+    "type": "text",
+    "src": "/data/text.txt",
+    "font": "several-mono.ttf"
   }
 ]
