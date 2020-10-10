@@ -2,115 +2,108 @@
   {
     "index": 0,
     "type": "image",
-    "src": "/textures/000.png",
-    "shadow": false
+    "src": "/textures/000.png"
   },
   {
     "index": 1,
     "type": "image",
-    "src": "/textures/001.png",
-    "shadow": false
+    "src": "/textures/001.png"
   },
   {
     "index": 2,
     "type": "image",
-    "src": "/textures/002.png",
-    "shadow": false
+    "src": "/textures/002.png"
   },
   {
     "index": 3,
     "type": "image",
-    "src": "/textures/003.png",
-    "shadow": false
+    "src": "/textures/003.png"
   },
   {
     "index": 4,
     "type": "image",
-    "src": "/textures/004.png",
-    "shadow": false
+    "src": "/textures/004.png"
   },
   {
     "index": 5,
     "type": "image",
-    "src": "/textures/005.png",
-    "shadow": false
+    "src": "/textures/005.png"
   },
   {
     "index": 6,
     "type": "image",
-    "src": "/textures/006.png",
-    "shadow": false
+    "src": "/textures/006.png"
   },
   {
     "index": 7,
     "type": "image",
-    "src": "/textures/007.png",
-    "shadow": false
+    "src": "/textures/007.png"
   },
   {
     "index": 8,
     "type": "image",
-    "src": "/textures/008.png",
-    "shadow": false
+    "src": "/textures/008.png"
   },
   {
     "index": 9,
     "type": "image",
-    "src": "/textures/009.png",
-    "shadow": false
+    "src": "/textures/009.png"
   },
   {
     "index": 10,
     "type": "image",
-    "src": "/textures/010.png",
-    "shadow": false
+    "src": "/textures/010.png"
   },
   {
     "index": 11,
     "type": "image",
-    "src": "/textures/011.png",
-    "shadow": false
+    "src": "/textures/011.png"
   },
   {
     "index": 12,
     "type": "image",
-    "src": "/textures/012.png",
-    "shadow": false
+    "src": "/textures/012.png"
   },
   {
     "index": 13,
     "type": "image",
-    "src": "/textures/013.png",
-    "shadow": false
+    "src": "/textures/013.png"
   },
   {
     "index": 14,
     "type": "image",
-    "src": "/textures/014.png",
-    "shadow": false
+    "src": "/textures/014.png"
   },
   {
     "index": 15,
     "type": "video",
-    "src": "/textures/100.mp4",
-    "shadow": false
+    "src": "/textures/100.mp4"
   },
   {
     "index": 16,
     "type": "video",
-    "src": "/textures/101.mp4",
-    "shadow": false
+    "src": "/textures/101.mp4"
   },
   {
     "index": 17,
     "type": "gif",
-    "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif",
-    "shadow": false
+    "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif"
   },
   {
     "index": 18,
     "type": "object",
-    "src": "planet",
-    "shadow": false
+    "src": "planet.gltf",
+    "scale": 0.5,
+    "nodes": [{ "name": "planet001", "material": "scene" }]
+  },
+  {
+    "index": 19,
+    "type": "object",
+    "src": "keyhole.glb",
+    "scale": 0.01,
+    "nodes": [
+      { "name": "Spring001", "material": "02 - Default" },
+      { "name": "Cylinder003", "material": "04 - Default" }
+    ]
   }
 ]

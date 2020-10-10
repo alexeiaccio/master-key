@@ -17,16 +17,22 @@ import GifLoader from '../lib/gif-loader'
 import { useTurnable } from '../hooks/useTurnable'
 
 function Image({ item, scale, ...props }) {
+  const FACTOR = 2000
   const [scW, scH, csZ] = scale
   const [map] = useLoader(TextureLoader, [item.src])
   const ratio = map.image.height / map.image.width
   const isVertical = ratio > 1
   const h = map && map.image ? ratio * scW : scH
   const w = map && map.image ? scH / ratio : scW
+  const factor = (isVertical ? map.image.height : map.image.width) / FACTOR
 
   return (
     <Plane
-      scale={[isVertical ? w : scW, isVertical ? scH : h, csZ]}
+      scale={[
+        (isVertical ? w : scW) * factor,
+        (isVertical ? scH : h) * factor,
+        csZ,
+      ]}
       args={[0, 0, 1, 1]}
       {...props}
     >
@@ -37,31 +43,28 @@ function Image({ item, scale, ...props }) {
 function Object({ item, ...props }) {
   const group = useRef()
   const ref = useTurnable()
-  const { nodes, materials } = useLoader(
+  const { nodes, materials, ...rest } = useLoader(
     GLTFLoader,
-    `/glb/${item.src}.gltf`,
+    `/glb/${item.src}`,
     draco()
   )
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group
-          ref={ref}
-          rotation={[0.24, -0.55, 0.56]}
-          scale={[0.5, 0.5, 0.5]}
-        >
-          <mesh
-            material={materials.scene}
-            geometry={nodes.planet001.geometry}
-          />
-          <mesh
-            material={materials.scene}
-            geometry={nodes.planet001.geometry}
-          />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
+        <group ref={ref} scale={[item.scale, item.scale, item.scale]}>
+          {item.nodes.map(({ name, material }) => (
+            <group key={name}>
+              <mesh
+                name={name}
+                material={materials[material]}
+                geometry={nodes[name].geometry}
+              />
+            </group>
+          ))}
         </group>
       </group>
+      <pointLight position={[10, 10, 10]} intensity={0.5} />
     </group>
   )
 }
