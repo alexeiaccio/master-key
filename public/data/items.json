@@ -112,6 +112,12 @@
   },
   {
     "index": 20,
+    "type": "object",
+    "name": "keyhole",
+    "scale": 2.5
+  },
+  {
+    "index": 21,
     "type": "text",
     "src": "/data/text.txt",
     "font": "several-mono.ttf"

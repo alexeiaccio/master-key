@@ -17,6 +17,8 @@ import { draco } from 'drei'
 import GifLoader from '../lib/gif-loader'
 import { useTurnable } from '../hooks/useTurnable'
 
+import Keyhole from './Keyhole'
+
 function Image({ item, scale, ...props }) {
   const FACTOR = 2500
   const [scW, scH, csZ] = scale
@@ -202,6 +204,16 @@ export default function Item({ position, index, item }) {
     )
   }
   if (item && item.type === 'object') {
+    if (item.name === 'keyhole') {
+      return (
+        <Keyhole
+          scale={[item.scale, item.scale, item.scale]}
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[x, y, index]}
+        />
+      )
+    }
+
     return (
       <Object
         item={item}
