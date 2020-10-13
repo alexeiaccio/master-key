@@ -91,7 +91,7 @@ function MainScene({ items, positions }) {
       <ambientLight intensity={0.8} />
       <Suspense fallback={null}>
         <Items positions={positions} items={shuffledItems} />
-        <MapControls enableDamping enableZoom={true} />
+        <MapControls enableDamping={false} enableZoom={false} />
       </Suspense>
     </Canvas>
   )
