@@ -15,12 +15,20 @@ export const useStore = create((set, get) => ({
   positionY: 0,
   zoom: 50,
   soundOn: true,
+  scales: {},
   updatePositionX: (positionX) => set(() => ({ positionX })),
   updatePositionY: (positionY) => set(() => ({ positionY })),
   updateZoom: (zoom) => set(() => ({ zoom })),
   updateWidth: (width) => set(() => ({ width })),
   updateHeight: (height) => set(() => ({ height })),
   toggleSound: () => set((state) => ({ soundOn: !state.soundOn })),
+  setScales: (idx, scales) =>
+    set((state) => ({
+      scales: {
+        ...state.scales,
+        [idx]: scales,
+      },
+    })),
 }))
 
 function Items({ items, positions, domContent }) {
@@ -61,7 +69,9 @@ function Items({ items, positions, domContent }) {
               fontSize: '2rem',
               cursor: 'pointer',
             }}
-            onClick={() => void setStarted(true)}
+            onClick={() => {
+              setStarted(true)
+            }}
           >
             Click to start
           </div>
@@ -97,13 +107,13 @@ function MainScene({ items, positions }) {
   )
 }
 
-function MiniMapItem({ position }) {
+function MiniMapItem({ position, index }) {
+  const scale = useStore((state) => state.scales[index])
   const [x, y, w, h] = position
-  const [scW, scH, csZ] = useAspect('contain', 1200, 1200, 1)
 
   return (
     <Plane
-      scale={[w || scW, h || scH, csZ]}
+      scale={[scale ? scale[0] : w, scale ? scale[1] : h, 1]}
       args={[0, 0, 1, 1]}
       position={[x, y, 1]}
     >
@@ -206,10 +216,7 @@ export default function Scene(props) {
       >
         <Minimap {...props} />
       </div>
-      <div
-        style={{ position: 'absolute', top: 0 }}
-        ref={domContent}
-      />
+      <div style={{ position: 'absolute', top: 0 }} ref={domContent} />
       <Header />
     </div>
   )

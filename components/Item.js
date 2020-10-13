@@ -20,7 +20,9 @@ import { useTurnable } from '../hooks/useTurnable'
 import Keyhole from './Keyhole'
 import { useStore } from './Scene'
 
-function Image({ item, scale, ...props }) {
+function Image({ item, scale, index, ...props }) {
+  const setScales = useStore((state) => state.setScales)
+
   const FACTOR = 2500
   const [scW, scH, csZ] = scale
   const [map] = useLoader(TextureLoader, [item.src])
@@ -29,6 +31,13 @@ function Image({ item, scale, ...props }) {
   const h = map && map.image ? ratio * scW : scH
   const w = map && map.image ? scH / ratio : scW
   const factor = (isVertical ? map.image.height : map.image.width) / FACTOR
+
+  useMemo(() => {
+    setScales(index, [
+      (isVertical ? w : scW) * factor,
+      (isVertical ? scH : h) * factor,
+    ])
+  }, [isVertical, w, scW, scH, h, factor])
 
   return (
     <Plane
@@ -44,7 +53,9 @@ function Image({ item, scale, ...props }) {
     </Plane>
   )
 }
-function TextItem({ item, scale, ...props }) {
+function TextItem({ item, scale, index, ...props }) {
+  const setScales = useStore((state) => state.setScales)
+  const ref = useRef()
   const [text, setText] = useState('')
 
   useMemo(() => {
@@ -54,9 +65,14 @@ function TextItem({ item, scale, ...props }) {
     })
   }, [])
 
+  useMemo(() => {
+    setScales(index, [14, 11])
+  }, [ref.current, text])
+
   return (
     <group {...props} dispose={null}>
       <Text
+        ref={ref}
         color={'#000'}
         fontSize={0.3}
         maxWidth={10}
@@ -99,7 +115,8 @@ function Object({ item, ...props }) {
     </group>
   )
 }
-function Video({ item, scale, ...props }) {
+function Video({ item, scale, index, ...props }) {
+  const setScales = useStore((state) => state.setScales)
   const soundOn = useStore((state) => state.soundOn)
 
   const [scW, _scH, csZ] = scale
@@ -121,19 +138,29 @@ function Video({ item, scale, ...props }) {
     return vid
   }, [])
 
+  useMemo(() => {
+    setScales(index, [scW * (16 / 9), scW])
+  }, [])
+
   return (
-    <mesh scale={[scW * 1.5, scW, csZ]} {...props}>
+    <mesh scale={[scW * (16 / 9), scW, csZ]} {...props}>
       <planeBufferGeometry attach="geometry" args={[1, 1]} />
       <meshBasicMaterial attach="material">
-        <videoTexture attach="map" args={[video]} />
+        <videoTexture
+          attach="map"
+          args={[video]}
+          minFilter={THREE.LinearFilter}
+          magFilter={THREE.LinearFilter}
+          format={THREE.RGBFormat}
+        />
       </meshBasicMaterial>
-      {soundOn && (
-        <PositionalAudio url={item.sound} loop distance={5} />
-      )}
+      {soundOn && <PositionalAudio url={item.sound} loop distance={5} />}
     </mesh>
   )
 }
-function Gif({ item, scale, ...props }) {
+function Gif({ item, scale, index, ...props }) {
+  const setScales = useStore((state) => state.setScales)
+
   const [scW, scH, csZ] = scale
   const [h, setH] = useState(scH)
   const [w, setW] = useState(scW)
@@ -145,8 +172,12 @@ function Gif({ item, scale, ...props }) {
     function read(reader) {
       const ratio = reader.height / reader.width
       const isVertical = ratio > 1
-      setH(isVertical ? scH : ratio * scW)
       setW(isVertical ? scH / ratio : scW)
+      setH(isVertical ? scH : ratio * scW)
+      setScales(index, [
+        isVertical ? scH / ratio : scW,
+        isVertical ? scH : ratio * scW,
+      ])
     },
     function pr(xhr) {
       console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`)
@@ -170,6 +201,7 @@ export default function Item({ position, index, item }) {
   if (item && item.type === 'image') {
     return (
       <Image
+        index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}
@@ -179,6 +211,7 @@ export default function Item({ position, index, item }) {
   if (item && item.type === 'gif') {
     return (
       <Gif
+        index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}
@@ -188,6 +221,7 @@ export default function Item({ position, index, item }) {
   if (item && item.type === 'video') {
     return (
       <Video
+        index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}
@@ -207,6 +241,7 @@ export default function Item({ position, index, item }) {
 
     return (
       <Object
+        index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}
