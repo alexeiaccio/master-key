@@ -100,7 +100,7 @@ function Object({ item, ...props }) {
 }
 function Video({ item, scale, ...props }) {
   const [scW, _scH, csZ] = scale
-  const [play, setPlay] = useState(false)
+  // const [play, setPlay] = useState(false)
   const video = useMemo(() => {
     const vid = document.createElement('video')
     vid.src = item.src
@@ -119,18 +119,18 @@ function Video({ item, scale, ...props }) {
     return vid
   }, [])
 
-  useEffect(() => {
-    const playNow = () => {
-      setPlay(true)
-    }
-    if (document !== undefined) {
-      if (!play) {
-        document.addEventListener('click', playNow)
-      } else {
-        document.removeEventListener('click', playNow)
-      }
-    }
-  }, [play, setPlay])
+  // useEffect(() => {
+  //   const playNow = () => {
+  //     setPlay(true)
+  //   }
+  //   if (document !== undefined) {
+  //     if (!play) {
+  //       document.addEventListener('click', playNow)
+  //     } else {
+  //       document.removeEventListener('click', playNow)
+  //     }
+  //   }
+  // }, [play, setPlay])
 
   return (
     <mesh scale={[scW * 1.5, scW, csZ]} {...props}>
@@ -138,7 +138,7 @@ function Video({ item, scale, ...props }) {
       <meshBasicMaterial attach="material">
         <videoTexture attach="map" args={[video]} />
       </meshBasicMaterial>
-      {play ? <PositionalAudio url={item.sound} loop distance={5} /> : null}
+      {/* <PositionalAudio url={item.sound} loop distance={5} /> */}
     </mesh>
   )
 }
@@ -208,7 +208,7 @@ export default function Item({ position, index, item }) {
       return (
         <Keyhole
           scale={[item.scale, item.scale, item.scale]}
-          rotation={[-Math.PI / 2, 0, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
           position={[x, y, index]}
         />
       )

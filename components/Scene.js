@@ -1,11 +1,52 @@
-import { Suspense } from 'react'
-import { Canvas } from 'react-three-fiber'
-import { MapControls } from '@react-three/drei'
+import { Suspense, useMemo, useRef } from 'react'
+import { Canvas, useThree } from 'react-three-fiber'
+import { MapControls, Plane, useAspect } from '@react-three/drei'
+import { useFrame } from 'react-three-fiber'
+import create from 'zustand'
 
 import Item from './Item'
 import Header from './Header'
 import shuffleArray from '../lib/shuffleArray'
 
+const useStore = create((set, get) => ({
+  width: 0,
+  height: 0,
+  positionX: 0,
+  positionY: 0,
+  zoom: 50,
+  updatePositionX: (positionX) => set(() => ({ positionX })),
+  updatePositionY: (positionY) => set(() => ({ positionY })),
+  updateZoom: (zoom) => set(() => ({ zoom })),
+  updateWidth: (width) => set(() => ({ width })),
+  updateHeight: (height) => set(() => ({ height })),
+}))
+
+function Items({ items, positions }) {
+  const updatePositionX = useStore((state) => state.updatePositionX)
+  const updatePositionY = useStore((state) => state.updatePositionY)
+  const updateZoom = useStore((state) => state.updateZoom)
+  const updateWidth = useStore((state) => state.updateWidth)
+  const updateHeight = useStore((state) => state.updateHeight)
+  useFrame(({ camera }) => {
+    updatePositionX(camera.position.x.toFixed())
+    updatePositionY(camera.position.y.toFixed())
+    updateZoom(camera.zoom.toFixed())
+    updateWidth(
+      Math.abs(camera.left.toFixed()) + Math.abs(camera.right.toFixed())
+    )
+    updateHeight(
+      Math.abs(camera.top.toFixed()) + Math.abs(camera.bottom.toFixed())
+    )
+  })
+  return positions.map(({ position, index }) => (
+    <Item
+      key={`item-${index}`}
+      position={position}
+      index={index}
+      item={items[index]}
+    />
+  ))
+}
 function MainScene({ items, positions }) {
   const shuffledItems = shuffleArray(items)
 
@@ -17,17 +58,67 @@ function MainScene({ items, positions }) {
       <color attach="background" args={[0xfff389]} />
       <ambientLight intensity={0.8} />
       <Suspense fallback={null}>
-        {positions.map(({ position, index }) => (
-          <Item
-            key={`item-${index}`}
-            position={position}
-            index={index}
-            item={shuffledItems[index]}
-          />
-        ))}
+        <Items positions={positions} items={shuffledItems} />
         <MapControls enableDamping enableZoom={true} />
       </Suspense>
     </Canvas>
+  )
+}
+
+function MiniMapItem({ position, index }) {
+  const [x, y, w, h] = position
+  const [scW, scH, csZ] = useAspect('contain', 1200, 1200, 1)
+
+  return (
+    <Plane
+      scale={[w || scW, h || scH, csZ]}
+      args={[0, 0, 1, 1]}
+      position={[x, y, 1]}
+    >
+      <meshBasicMaterial attach="material" color={0x000000} />
+    </Plane>
+  )
+}
+function MiniMapItems({ positions }) {
+  const positionX = useStore((state) => state.positionX)
+  const positionY = useStore((state) => state.positionY)
+  const zoom = useStore((state) => state.zoom)
+  const height = useStore((state) => state.height)
+  const width = useStore((state) => state.width)
+  const minimapCamera = useRef()
+  const { camera } = useThree()
+
+  useMemo(() => {
+    minimapCamera.current = {
+      zoom: camera.zoom.toFixed(),
+      width: Math.abs(camera.left.toFixed()) + Math.abs(camera.right.toFixed()),
+      height:
+        Math.abs(camera.top.toFixed()) + Math.abs(camera.bottom.toFixed()),
+    }
+  }, [camera])
+
+  const rect = useMemo(() => {
+    const factor = (minimapCamera.current.zoom / zoom) * 0.5
+    return {
+      x: positionX * factor,
+      y: positionY * factor,
+      width: width * factor,
+      height: height * factor,
+    }
+  }, [minimapCamera.current, positionX, positionY, zoom, height, width])
+
+  return (
+    <group>
+      {positions.map(({ position, index }) => (
+        <MiniMapItem key={`mini-item-${index}`} position={position} index={index} />
+      ))}
+      <Plane
+        position={[positionX, positionY, 0]}
+        scale={[rect.width, rect.height, 0]}
+      >
+        <meshBasicMaterial attach="material" color={0xfff389} />
+      </Plane>
+    </group>
   )
 }
 function Minimap({ positions }) {
@@ -36,22 +127,15 @@ function Minimap({ positions }) {
       orthographic
       camera={{
         position: [0, 0, 50],
-        zoom: 2,
-        up: [0, 0, 1],
-        // lookAt: () => [0, -1, 0],
+        rotateY: -Math.PI / 4,
+        zoom: 2.5,
         far: 1000,
-        top: 1000,
-        right: 1000,
-        left: -1000,
-        bottom: -1000,
       }}
     >
-      <color attach="background" args={[0xffffff]} />
+      <color attach="background" args={[0x252209]} />
       <ambientLight intensity={0.8} />
       <Suspense fallback={null}>
-        {positions.map(({ position, index }) => (
-          <Item key={`item-${index}`} position={position} index={index} />
-        ))}
+        <MiniMapItems positions={positions} />
       </Suspense>
     </Canvas>
   )
@@ -60,7 +144,7 @@ function Minimap({ positions }) {
 export default function Scene(props) {
   return (
     <div style={{ position: 'fixed', width: '100vw', height: '100vh' }}>
-      <div style={{ position: 'absolute', width: '100%', height: '100%' }}>
+      <div style={{ position: 'absolute', width: '100%', height: '100%', cursor: 'grab' }}>
         <MainScene {...props} />
       </div>
       <div
@@ -70,7 +154,9 @@ export default function Scene(props) {
           height: '20rem',
           bottom: '1rem',
           right: '1rem',
-          border: `1px solid #000`,
+          border: `4px solid #bdb03b`,
+          borderRadius: '4px',
+          overflow: 'hidden',
         }}
       >
         <Minimap {...props} />
