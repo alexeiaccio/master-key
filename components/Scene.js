@@ -1,6 +1,6 @@
-import { Suspense, useMemo, useRef } from 'react'
+import { Suspense, useMemo, useRef, useState } from 'react'
 import { Canvas, useThree } from 'react-three-fiber'
-import { MapControls, Plane, useAspect } from '@react-three/drei'
+import { MapControls, Plane, useAspect, Html } from '@react-three/drei'
 import { useFrame } from 'react-three-fiber'
 import create from 'zustand'
 
@@ -8,20 +8,23 @@ import Item from './Item'
 import Header from './Header'
 import shuffleArray from '../lib/shuffleArray'
 
-const useStore = create((set, get) => ({
+export const useStore = create((set, get) => ({
   width: 0,
   height: 0,
   positionX: 0,
   positionY: 0,
   zoom: 50,
+  soundOn: true,
   updatePositionX: (positionX) => set(() => ({ positionX })),
   updatePositionY: (positionY) => set(() => ({ positionY })),
   updateZoom: (zoom) => set(() => ({ zoom })),
   updateWidth: (width) => set(() => ({ width })),
   updateHeight: (height) => set(() => ({ height })),
+  toggleSound: () => set((state) => ({ soundOn: !state.soundOn })),
 }))
 
-function Items({ items, positions }) {
+function Items({ items, positions, domContent }) {
+  const [started, setStarted] = useState(false)
   const updatePositionX = useStore((state) => state.updatePositionX)
   const updatePositionY = useStore((state) => state.updatePositionY)
   const updateZoom = useStore((state) => state.updateZoom)
@@ -38,14 +41,43 @@ function Items({ items, positions }) {
       Math.abs(camera.top.toFixed()) + Math.abs(camera.bottom.toFixed())
     )
   })
-  return positions.map(({ position, index }) => (
-    <Item
-      key={`item-${index}`}
-      position={position}
-      index={index}
-      item={items[index]}
-    />
-  ))
+
+  return (
+    <>
+      {!started ? (
+        <Html fullscreen portal={domContent}>
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              color: '#fff',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: '2rem',
+              cursor: 'pointer',
+            }}
+            onClick={() => void setStarted(true)}
+          >
+            Click to start
+          </div>
+        </Html>
+      ) : (
+        positions.map(({ position, index }) => (
+          <Item
+            key={`item-${index}`}
+            position={position}
+            index={index}
+            item={items[index]}
+          />
+        ))
+      )}
+    </>
+  )
 }
 function MainScene({ items, positions }) {
   const shuffledItems = shuffleArray(items)
@@ -65,7 +97,7 @@ function MainScene({ items, positions }) {
   )
 }
 
-function MiniMapItem({ position, index }) {
+function MiniMapItem({ position }) {
   const [x, y, w, h] = position
   const [scW, scH, csZ] = useAspect('contain', 1200, 1200, 1)
 
@@ -98,7 +130,7 @@ function MiniMapItems({ positions }) {
   }, [camera])
 
   const rect = useMemo(() => {
-    const factor = (minimapCamera.current.zoom / zoom) * 0.5
+    const factor = (minimapCamera.current.zoom / zoom) * 0.4
     return {
       x: positionX * factor,
       y: positionY * factor,
@@ -110,7 +142,11 @@ function MiniMapItems({ positions }) {
   return (
     <group>
       {positions.map(({ position, index }) => (
-        <MiniMapItem key={`mini-item-${index}`} position={position} index={index} />
+        <MiniMapItem
+          key={`mini-item-${index}`}
+          position={position}
+          index={index}
+        />
       ))}
       <Plane
         position={[positionX, positionY, 0]}
@@ -142,10 +178,19 @@ function Minimap({ positions }) {
 }
 
 export default function Scene(props) {
+  const domContent = useRef()
+
   return (
     <div style={{ position: 'fixed', width: '100vw', height: '100vh' }}>
-      <div style={{ position: 'absolute', width: '100%', height: '100%', cursor: 'grab' }}>
-        <MainScene {...props} />
+      <div
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          cursor: 'grab',
+        }}
+      >
+        <MainScene domContent={domContent} {...props} />
       </div>
       <div
         style={{
@@ -161,6 +206,10 @@ export default function Scene(props) {
       >
         <Minimap {...props} />
       </div>
+      <div
+        style={{ position: 'absolute', top: 0 }}
+        ref={domContent}
+      />
       <Header />
     </div>
   )

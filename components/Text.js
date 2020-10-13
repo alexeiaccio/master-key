@@ -5,16 +5,22 @@ export default function Text() {
         {`
           .text {
             background-color: #fff;
-            border: 1px solid #000;
+            border: 4px solid #bdb03b;
+            border-radius: 4px;
             color: #000 !important;
-            font-size: 1rem;
-            font-family: monospace;
-            max-width: 50vw;
+            font-size: 1.25rem;
+            font-family: serif;
+            margin: 0 2rem;
             max-height: 50vh;
             overflow: scroll;
           }
+          @media screen and (min-width: 769px) {
+            .text {
+              max-width: 36rem;
+            }
+          }
           .section {
-            padding: 2rem 1rem;
+            padding: 2rem;
           }
           .section > div {
             margin-bottom: 0.5rem;
@@ -111,8 +117,7 @@ export default function Text() {
         <div>
           <img
             src="https://thumb.tildacdn.com/tild3936-3464-4435-a562-353461613532/-/resize/80x/-/format/webp/photo.png"
-            width="170"
-            height="232"
+            width="164px"
           />
         </div>
         <div>26. Поймать, и&nbsp;быть пойманным</div>
@@ -131,7 +136,7 @@ export default function Text() {
           32. Макгаффин&nbsp;— предмет, вокруг поисков или желания завладеть
           которым строится фабульная сторона произведения (как правило,
           приключенческого жанра), при этом суть самого предмета не&nbsp;играет
-          существенной роли и&nbsp;зачастую не&nbsp;проясняется.
+          существенной роли и&nbsp;зачастую не&nbsp;проясняется.{' '}
           <em>
             «Не&nbsp;важно, что это за&nbsp;вещь; главное, что все хотят
             ею&nbsp;обладать»**
@@ -163,8 +168,7 @@ export default function Text() {
         <div>
           <img
             src="https://thumb.tildacdn.com/tild3337-3464-4635-a235-306266313535/-/resize/400x/-/format/webp/photo.png"
-            width="753"
-            height="574"
+            width="100%"
           />
         </div>
         <div>

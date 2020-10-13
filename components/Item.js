@@ -18,6 +18,7 @@ import GifLoader from '../lib/gif-loader'
 import { useTurnable } from '../hooks/useTurnable'
 
 import Keyhole from './Keyhole'
+import { useStore } from './Scene'
 
 function Image({ item, scale, ...props }) {
   const FACTOR = 2500
@@ -99,8 +100,9 @@ function Object({ item, ...props }) {
   )
 }
 function Video({ item, scale, ...props }) {
+  const soundOn = useStore((state) => state.soundOn)
+
   const [scW, _scH, csZ] = scale
-  // const [play, setPlay] = useState(false)
   const video = useMemo(() => {
     const vid = document.createElement('video')
     vid.src = item.src
@@ -119,26 +121,15 @@ function Video({ item, scale, ...props }) {
     return vid
   }, [])
 
-  // useEffect(() => {
-  //   const playNow = () => {
-  //     setPlay(true)
-  //   }
-  //   if (document !== undefined) {
-  //     if (!play) {
-  //       document.addEventListener('click', playNow)
-  //     } else {
-  //       document.removeEventListener('click', playNow)
-  //     }
-  //   }
-  // }, [play, setPlay])
-
   return (
     <mesh scale={[scW * 1.5, scW, csZ]} {...props}>
       <planeBufferGeometry attach="geometry" args={[1, 1]} />
       <meshBasicMaterial attach="material">
         <videoTexture attach="map" args={[video]} />
       </meshBasicMaterial>
-      {/* <PositionalAudio url={item.sound} loop distance={5} /> */}
+      {soundOn && (
+        <PositionalAudio url={item.sound} loop distance={5} />
+      )}
     </mesh>
   )
 }
