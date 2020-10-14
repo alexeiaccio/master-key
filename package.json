@@ -1,5 +1,5 @@
 {
-  "name": "with-three-js",
+  "name": "master-key",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,9 +12,12 @@
     "drei": "0.0.60",
     "next": "^9.5.4-canary.23",
     "omggif": "^1.0.10",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
     "react": "^17.0.0-rc.2",
     "react-dom": "^17.0.0-rc.2",
     "react-three-fiber": "^5.0.3",
+    "tailwindcss": "^1.9.1",
     "three": "0.118.3",
     "zustand": "^3.1.3"
   },

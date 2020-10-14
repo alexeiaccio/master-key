@@ -1,4 +1,5 @@
 import * as fs from "fs";
+
 import Scene from "../components/Scene";
 
 export async function getStaticProps() {

@@ -95,26 +95,25 @@
     "index": 18,
     "type": "object",
     "src": "planet.gltf",
-    "scale": 0.35,
-    "rotation": "x",
-    "nodes": [{ "name": "planet001", "material": "scene" }]
+    "scale": 0.5,
+    "rotation": "-y",
+    "axis": "y"
   },
   {
     "index": 19,
     "type": "object",
     "src": "keys.gltf",
-    "scale": 0.2,
-    "rotation": "x",
-    "nodes": [
-      { "name": "mesh_0", "material": "blinn1SG" },
-      { "name": "mesh_1", "material": "blinn1SG" }
-    ]
+    "scale": 2,
+    "rotation": "-z",
+    "axis": "x"
   },
   {
     "index": 20,
     "type": "object",
-    "name": "keyhole",
-    "scale": 2.5
+    "src": "keyhole.glb",
+    "scale": 2.5,
+    "rotation": "x",
+    "axis": "z"
   },
   {
     "index": 21,
