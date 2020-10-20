@@ -40,3 +40,14 @@ http://www.oyonale.com/modeles.php?lang=en&format=OBJ
 ## MiniMap
 
 https://github.com/stemkoski/stemkoski.github.com/blob/master/Three.js/Viewports-Minimap-Effects-2.html
+
+
+## PSD to Figma
+
+https://avocode.com/convert-psd-to-sketch
+
+
+## Heatmap
+
+https://github.com/pa7/heatmap.js/blob/master/examples/mousemove-heatmap/index.html
+https://gist.github.com/yuanzhaokang/e17fa96217a360ca563d776f37bde79e

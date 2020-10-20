@@ -15,6 +15,12 @@ module.exports = {
       cursor: {
         grab: 'grab',
       },
+      width: {
+        'screen-20': '20vw',
+      },
+      height: {
+        'screen-20': '20vh',
+      },
     },
   },
   variants: {},

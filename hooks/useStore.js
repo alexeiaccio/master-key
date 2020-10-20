@@ -7,7 +7,8 @@ export const useStore = create((set) => ({
   positionX: 0,
   positionY: 0,
   zoom: 50,
-  soundOn: true,
+  soundOn: false,
+  lang: 'eng',
   scales: {},
   start: () => set(() => ({ started: true })),
   updatePositionX: (positionX) => set(() => ({ positionX })),
@@ -16,6 +17,8 @@ export const useStore = create((set) => ({
   updateWidth: (width) => set(() => ({ width })),
   updateHeight: (height) => set(() => ({ height })),
   toggleSound: () => set((state) => ({ soundOn: !state.soundOn })),
+  toggleLang: () =>
+    set((state) => ({ lang: state.lang === 'eng' ? 'rus' : 'eng' })),
   setScales: (idx, scales) =>
     set((state) => ({
       scales: {

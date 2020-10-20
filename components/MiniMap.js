@@ -14,7 +14,6 @@ export default function Minimap({ positions }) {
         far: 1000,
       }}
     >
-      <color attach="background" args={[0x252209]} />
       <ambientLight intensity={0.8} />
       <Suspense fallback={null}>
         <MiniMapItems positions={positions} />
