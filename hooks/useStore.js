@@ -1,11 +1,13 @@
 import create from 'zustand'
 
 export const useStore = create((set) => ({
-  started: false,
+  started: true,
   width: 0,
   height: 0,
   positionX: 0,
   positionY: 0,
+  prevPosition: null,
+  moveTo: null,
   zoom: 50,
   soundOn: false,
   lang: 'eng',
@@ -26,4 +28,18 @@ export const useStore = create((set) => ({
         [idx]: scales,
       },
     })),
+  zoomOut: () =>
+    set((state) => ({
+      zoom: 5,
+      prevPosition: [state.positionX, state.positionY],
+      moveTo: [0, 0],
+    })),
+  zoomIn: () =>
+    set((state) => ({
+      zoom: 50,
+      moveTo: state.prevPosition,
+      prevPosition: null,
+    })),
+  setMoveTo: (moveTo) => set(() => ({ moveTo })),
+  noop: () => set(() => ({})),
 }))

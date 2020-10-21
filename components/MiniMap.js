@@ -10,7 +10,7 @@ export default function Minimap({ positions }) {
       camera={{
         position: [0, 0, 50],
         rotateY: -Math.PI / 4,
-        zoom: 2.5,
+        zoom: 2,
         far: 1000,
       }}
     >

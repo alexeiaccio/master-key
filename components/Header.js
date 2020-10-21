@@ -1,16 +1,18 @@
 import { useStore } from '../hooks/useStore'
 import MasterKey from './MasterKey'
 
-const noop = () => {}
-
 export default function Header() {
   const soundOn = useStore((state) => state.soundOn)
   const lang = useStore((state) => state.lang)
   const toggleSound = useStore((state) => state.toggleSound)
   const toggleLang = useStore((state) => state.toggleLang)
+  const noop = useStore((state) => state.noop)
 
   return (
-    <header className="absolute inset-0 bottom-auto flex flex-row items-baseline justify-between p-4 font-mono text-sm">
+    <header
+      className="absolute inset-0 bottom-auto flex flex-row items-baseline justify-between p-4 font-mono text-sm"
+      style={{ zIndex: 15940005 }}
+    >
       <h1 className="h-6 text-black">
         <MasterKey />
       </h1>

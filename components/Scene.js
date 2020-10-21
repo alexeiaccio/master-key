@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { Loader } from '@react-three/drei'
 
 import { useStore } from '../hooks/useStore'
@@ -11,7 +10,6 @@ import Footer from './Footer'
 export default function Scene(props) {
   const started = useStore((state) => state.started)
   const start = useStore((state) => state.start)
-  const domContent = useRef()
 
   return (
     <div className="fixed w-screen h-screen">
@@ -25,7 +23,7 @@ export default function Scene(props) {
       ) : (
         <>
           <div className="absolute w-full h-full cursor-grab">
-            <MainScene domContent={domContent} {...props} />
+            <MainScene {...props} />
           </div>
           <div className="hidden md:block absolute w-screen-20 h-screen-20 bottom-0 right-0 m-4 rounded-sm border-2 border-solid border-gray-700">
             <div className="absolute inset-0">
@@ -33,7 +31,6 @@ export default function Scene(props) {
             </div>
             <Minimap {...props} />
           </div>
-          <div className="absolute top-0" ref={domContent} />
         </>
       )}
       <Loader
