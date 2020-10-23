@@ -5,7 +5,7 @@ import { useThree } from 'react-three-fiber'
 import { useStore } from '../hooks/useStore'
 import MiniMapItem from './MiniMapItem'
 
-export default function MiniMapItems({ positions }) {
+export default function MiniMapItems({ items }) {
   const positionX = useStore((state) => state.positionX)
   const positionY = useStore((state) => state.positionY)
   const zoom = useStore((state) => state.zoom)
@@ -32,13 +32,14 @@ export default function MiniMapItems({ positions }) {
 
   return (
     <group>
-      {positions.map(({ position, index }) => (
-        <MiniMapItem
-          key={`minimap-item-${index}`}
-          position={position}
-          index={index}
-        />
-      ))}
+      {items.map((item) =>
+        item ? (
+          <MiniMapItem
+            key={`minimap-item-${item.index}`}
+            item={item}
+          />
+        ) : null
+      )}
       <Plane
         position={[positionX, positionY, 0]}
         scale={[rect.width, rect.height, 0]}

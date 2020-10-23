@@ -1,12 +1,14 @@
-import { useAspect, Plane } from '@react-three/drei'
+import { useAspect, Plane, Html } from '@react-three/drei'
 
 import GifItem from './GifItem'
 import GLTFItem from './GLTFItem'
 import ImageItem from './ImageItem'
 import VideoItem from './VideoItem'
 import TextItem from './TextItem'
+import Text from './Text'
 
-export default function Item({ position, index, item }) {
+export default function Item({ item }) {
+  const { index, position } = item
   const [x, y, w, h] = position
   const [scW, scH, csZ] = useAspect('contain', 1200, 1200, 1)
 
@@ -50,6 +52,17 @@ export default function Item({ position, index, item }) {
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, index]}
       />
+    )
+  }
+  if (item && item.type === 'about') {
+    return (
+      <Html
+        scaleFactor={0.02}
+        scale={[w || scW, h || scH, csZ]}
+        position={[x - 10, y, index]}
+      >
+        <Text />
+      </Html>
     )
   }
 

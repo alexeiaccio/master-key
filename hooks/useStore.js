@@ -1,12 +1,14 @@
 import create from 'zustand'
 
 export const useStore = create((set) => ({
-  started: true,
+  started: false,
   width: 0,
   height: 0,
   positionX: 0,
   positionY: 0,
   prevPosition: null,
+  home: null,
+  bounds: null,
   moveTo: null,
   zoom: 50,
   soundOn: false,
@@ -41,5 +43,12 @@ export const useStore = create((set) => ({
       prevPosition: null,
     })),
   setMoveTo: (moveTo) => set(() => ({ moveTo })),
+  moveToHome: () => set((state) => ({ moveTo: state.home })),
+  setHome: (home) => set(() => ({ home })),
+  setBounds: (bounds) => set(() => ({ bounds })),
+  swing: () => set((state) => ({ moveTo: state.bounds ? [
+    Math.random() * (state.bounds[2] - state.bounds[0]) + state.bounds[0],
+    Math.random() * (state.bounds[1] - state.bounds[3]) + state.bounds[3],
+  ] : [0, 0] })),
   noop: () => set(() => ({})),
 }))

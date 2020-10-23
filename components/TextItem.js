@@ -4,16 +4,17 @@ import { useMemo, useRef, useState } from "react"
 import { useStore } from "../hooks/useStore"
 
 export default function TextItem({ item, scale, index, ...props }) {
+  const lang = useStore((state) => state.lang)
   const setScales = useStore((state) => state.setScales)
   const ref = useRef()
   const [text, setText] = useState('')
 
   useMemo(() => {
-    fetch(item.src).then(async (x) => {
+    fetch(item[lang]).then(async (x) => {
       const newText = await x.text()
       setText(newText)
     })
-  }, [])
+  }, [lang])
 
   useMemo(() => {
     setScales(index, [14, 11])
@@ -29,7 +30,7 @@ export default function TextItem({ item, scale, index, ...props }) {
         lineHeight={1.2}
         letterSpacing={0.05}
         textAlign={'left'}
-        font={`/fonts/${item.font}`}
+        font={`/fonts/${item[`${lang}font`]}`}
         anchorX="center"
         anchorY="middle"
       >

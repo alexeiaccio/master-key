@@ -4,11 +4,13 @@ import { ArcCurve } from 'three'
 
 import { useStore } from '../hooks/useStore'
 
-export default function MainSceneManager({ positions }) {
+export default function MainSceneManager({ items }) {
   const { camera } = useThree()
   const zoom = useStore((state) => state.zoom)
   const moveTo = useStore((state) => state.moveTo)
   const setMoveTo = useStore((state) => state.setMoveTo)
+  const setHome = useStore((state) => state.setHome)
+  const setBounds = useStore((state) => state.setBounds)
 
   useEffect(() => {
     camera.zoom = zoom
@@ -23,19 +25,23 @@ export default function MainSceneManager({ positions }) {
   }, [moveTo])
 
   useMemo(() => {
-    const start = positions.reduce((acc, { position }) => {
+    const start = items.reduce((acc, { position }) => {
       if (acc.length !== 0) {
         let res = acc
         res[0] = acc[0] > position[0] ? position[0] : acc[0]
         res[1] = acc[1] < position[1] ? position[1] : acc[1]
+        res[2] = acc[2] < position[0] ? position[0] : acc[2]
+        res[3] = acc[3] > position[1] ? position[1] : acc[3]
         return res
       }
 
-      return [position[0], position[1]]
+      return [position[0], position[1], position[0], position[1]]
     }, [])
 
-    setMoveTo([start[0] + 10, start[1] - 5])
-  }, [positions])
+    setHome([start[0], start[1]])
+    setBounds(start);
+    setMoveTo([start[0], start[1]])
+  }, [items])
 
   return null
 }

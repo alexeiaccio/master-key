@@ -1,98 +1,117 @@
 [
   {
     "index": 0,
+    "position": [9, -17, 10, 10],
     "type": "image",
     "src": "/textures/000.png"
   },
   {
     "index": 1,
+    "position": [0, 0, 10, 10],
     "type": "image",
     "src": "/textures/001.png"
   },
   {
     "index": 2,
+    "position": [-41, -31, 10, 10],
     "type": "image",
     "src": "/textures/002.png"
   },
   {
     "index": 3,
+    "position": [23, 2, 10, 10],
     "type": "image",
     "src": "/textures/003.png"
   },
   {
     "index": 4,
+    "position": [30, -6, 10, 10],
     "type": "image",
     "src": "/textures/004.png"
   },
   {
     "index": 5,
+    "position": [-5, -6, 10, 10],
     "type": "image",
     "src": "/textures/005.png"
   },
   {
     "index": 6,
+    "position": [-21, 3, 10, 10],
     "type": "image",
     "src": "/textures/006.png"
   },
   {
     "index": 7,
+    "position": [-28, -17, 10, 10],
     "type": "image",
     "src": "/textures/007.png"
   },
   {
     "index": 8,
+    "position": [12, 19, 10, 10],
     "type": "image",
     "src": "/textures/008.png"
   },
   {
     "index": 9,
+    "position": [14, -32, 10, 10],
     "type": "image",
     "src": "/textures/009.png"
   },
   {
     "index": 10,
+    "position": [26, 27, 10, 10],
     "type": "image",
     "src": "/textures/010.png"
   },
   {
     "index": 11,
+    "position": [-10, -24, 10, 10],
     "type": "image",
     "src": "/textures/011.png"
   },
   {
     "index": 12,
+    "position": [-33, -3, 10, 10],
     "type": "image",
     "src": "/textures/012.png"
   },
   {
     "index": 13,
+    "position": [-26, 10, 10, 10],
     "type": "image",
     "src": "/textures/013.png"
   },
   {
     "index": 14,
+    "position": [-40, 28, 10, 10],
     "type": "image",
     "src": "/textures/014.png"
   },
   {
     "index": 15,
+    "position": [-50, -3, 10, 10],
     "type": "video",
     "src": "/textures/100.mp4",
     "sound": "/textures/100.mp3"
   },
   {
     "index": 16,
+    "position": [25, -25, 10, 10],
     "type": "video",
     "src": "/textures/101.mp4",
     "sound": "/textures/101.mp3"
   },
   {
     "index": 17,
+    "position": [-9, 32, 10, 10],
     "type": "gif",
     "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif"
   },
   {
     "index": 18,
+    "position": [-12, 22, 10, 10],
     "type": "object",
     "src": "planet.gltf",
     "scale": 0.5,
@@ -101,6 +120,7 @@
   },
   {
     "index": 19,
+    "position": [12, -22, 10, 10],
     "type": "object",
     "src": "keys.gltf",
     "scale": 2,
@@ -109,6 +129,7 @@
   },
   {
     "index": 20,
+    "position": [42, -2, 10, 10],
     "type": "object",
     "src": "keyhole.glb",
     "scale": 2.5,
@@ -117,8 +138,16 @@
   },
   {
     "index": 21,
+    "position": [4, -42, 10, 10],
     "type": "text",
-    "src": "/data/text.txt",
-    "font": "several-mono.ttf"
+    "eng": "/data/eng.txt",
+    "rus": "/data/rus.txt",
+    "engfont": "several-mono.ttf",
+    "rusfont": "iosevka-fixed.ttf"
+  },
+  {
+    "index": 22,
+    "position": [-60, 40, 20, 30],
+    "type": "about"
   }
 ]

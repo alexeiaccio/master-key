@@ -6,9 +6,7 @@ import shuffleArray from '../lib/shuffleArray'
 import MainSceneItems from './MainSceneItems'
 import MainSceneMenager from './MainSceneManager'
 
-export default function MainScene({ items, positions }) {
-  const [shuffledItems] = useState(() => shuffleArray(items))
-
+export default function MainScene({ items }) {
   return (
     <Canvas
       orthographic
@@ -23,8 +21,8 @@ export default function MainScene({ items, positions }) {
       <color attach="background" args={[0xfff389]} />
       <ambientLight intensity={0.2} />
       <Suspense fallback={null}>
-        <MainSceneItems positions={positions} items={shuffledItems} />
-        <MainSceneMenager positions={positions} />
+        <MainSceneItems items={items} />
+        <MainSceneMenager items={items} />
         <MapControls enableDamping={false} enableZoom={false} />
       </Suspense>
     </Canvas>

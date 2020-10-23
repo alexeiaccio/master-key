@@ -2,10 +2,11 @@ import { Plane } from '@react-three/drei'
 
 import { useStore } from '../hooks/useStore'
 
-export default function MiniMapItem({ position, index }) {
+export default function MiniMapItem({ item }) {
+  const { index, position } = item
+  const [x, y, w, h] = position
   const started = useStore((state) => state.started)
   const scale = useStore((state) => state.scales[index])
-  const [x, y, w, h] = position
 
   return started ? (
     <Plane

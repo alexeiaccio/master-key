@@ -3,7 +3,7 @@ import { useFrame } from 'react-three-fiber'
 import { useStore } from '../hooks/useStore'
 import Item from './Item'
 
-export default function Items({ items, positions }) {
+export default function Items({ items }) {
   const updatePositionX = useStore((state) => state.updatePositionX)
   const updatePositionY = useStore((state) => state.updatePositionY)
   const updateWidth = useStore((state) => state.updateWidth)
@@ -16,12 +16,10 @@ export default function Items({ items, positions }) {
     updateHeight(Math.abs(~~camera.top) + Math.abs(~~camera.bottom))
   })
 
-  return positions.map(({ position, index }) => (
+  return items.map((item) => item ? (
     <Item
-      key={`item-${index}`}
-      position={position}
-      index={index}
-      item={items[index]}
+      key={`item-${item.index}`}
+      item={item}
     />
-  ))
+  ) : null)
 }
