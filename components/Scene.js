@@ -1,4 +1,4 @@
-import { Loader } from '@react-three/drei'
+// import { Loader } from '@react-three/drei'
 
 import { useStore } from '../hooks/useStore'
 import Header from './Header'
@@ -33,10 +33,10 @@ export default function Scene(props) {
           </div>
         </>
       )}
-      <Loader
+      {/* <Loader
         containerStyles={{ opacity: 0.75 }}
         dataInterpolation={(p) => `Loading ${(p * 100).toFixed(2)}%`}
-      />
+      /> */}
       <Header />
       <Footer />
     </div>
