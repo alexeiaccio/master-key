@@ -1,7 +1,7 @@
 import create from 'zustand'
 
 export const useStore = create((set) => ({
-  started: false,
+  started: true,
   width: 0,
   height: 0,
   positionX: 0,
@@ -32,7 +32,7 @@ export const useStore = create((set) => ({
     })),
   zoomOut: () =>
     set((state) => ({
-      zoom: 5,
+      zoom: 10,
       prevPosition: [state.positionX, state.positionY],
       moveTo: [0, 0],
     })),

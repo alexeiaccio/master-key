@@ -8,9 +8,11 @@ export default function MainSceneManager({ items }) {
   const { camera } = useThree()
   const zoom = useStore((state) => state.zoom)
   const moveTo = useStore((state) => state.moveTo)
-  const setMoveTo = useStore((state) => state.setMoveTo)
+  const moveToHome = useStore((state) => state.moveToHome)
   const setHome = useStore((state) => state.setHome)
   const setBounds = useStore((state) => state.setBounds)
+  const height = useStore((state) => state.height)
+  const width = useStore((state) => state.width)
 
   useEffect(() => {
     camera.zoom = zoom
@@ -38,10 +40,10 @@ export default function MainSceneManager({ items }) {
       return [position[0], position[1], position[0], position[1]]
     }, [])
 
-    setHome([start[0], start[1]])
-    setBounds(start);
-    setMoveTo([start[0], start[1]])
-  }, [items])
+    setHome([start[0] - 0.1 + width * 0.01, start[1] + 2 - height * 0.01])
+    setBounds(start)
+    moveToHome()
+  }, [items, width, height])
 
   return null
 }

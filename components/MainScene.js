@@ -1,13 +1,13 @@
-import { Suspense, useState } from 'react'
+import { Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
-import { MapControls } from '@react-three/drei'
+import { Loader, MapControls } from '@react-three/drei'
 
-import shuffleArray from '../lib/shuffleArray'
 import MainSceneItems from './MainSceneItems'
 import MainSceneMenager from './MainSceneManager'
 
 export default function MainScene({ items }) {
   return (
+    <>
     <Canvas
       orthographic
       camera={{
@@ -26,5 +26,10 @@ export default function MainScene({ items }) {
         <MapControls enableDamping={false} enableZoom={false} />
       </Suspense>
     </Canvas>
+    <Loader
+        containerStyles={{ opacity: 0.75 }}
+        dataInterpolation={(p) => `Loading ${(p * 100).toFixed(2)}%`}
+      />
+    </>
   )
 }

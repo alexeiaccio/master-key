@@ -17,6 +17,7 @@ export default function Text() {
             width: 40rem;
             height: 20rem;
             position: relative;
+            padding: 0 1rem;
           }
           .section {
             padding: 1rem 0;

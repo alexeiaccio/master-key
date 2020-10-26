@@ -18,7 +18,7 @@ export default function Item({ item }) {
         index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
-        position={[x, y, index / 2]}
+        position={[x, y, 1]}
       />
     )
   }
@@ -28,7 +28,7 @@ export default function Item({ item }) {
         index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
-        position={[x, y, index / 2]}
+        position={[x, y, 1]}
       />
     )
   }
@@ -38,19 +38,19 @@ export default function Item({ item }) {
         index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}
-        position={[x, y, index / 2]}
+        position={[x, y, 1]}
       />
     )
   }
   if (item && item.type === 'object') {
-    return <GLTFItem index={index} item={item} position={[x, y, index / 2]} />
+    return <GLTFItem index={index} item={item} position={[x, y, 1]} />
   }
   if (item && item.type === 'text') {
     return (
       <TextItem
         item={item}
         scale={[w || scW, h || scH, csZ]}
-        position={[x, y, index / 2]}
+        position={[x, y, 1]}
       />
     )
   }
@@ -59,12 +59,12 @@ export default function Item({ item }) {
       <Html
         scaleFactor={0.02}
         scale={[w || scW, h || scH, csZ]}
-        position={[x - 10, y + 5, index / 2]}
+        position={[x, y, 1]}
       >
         <div className="relative cursor-default">
           <Text />
           <div
-            className="absolute bottom-0 bg-no-repeat bg-contain transform translate-y-full"
+            className="absolute bottom-0 transform translate-y-full bg-no-repeat bg-contain"
             style={{
               width: '60rem',
               height: '20rem',
@@ -80,7 +80,7 @@ export default function Item({ item }) {
     <Plane
       scale={[w || scW, h || scH, csZ]}
       args={[0, 0, 1, 1]}
-      position={[x, y, index / 2]}
+      position={[x, y, 1]}
     >
       <meshPhongMaterial attach="material" wireframe />
     </Plane>
