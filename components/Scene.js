@@ -1,11 +1,12 @@
-// import { Loader } from '@react-three/drei'
+import dynamic from 'next/dynamic'
 
 import { useStore } from '../hooks/useStore'
 import Header from './Header'
 import HeatMap from './HeatMap'
-import MainScene from './MainScene'
 import Minimap from './MiniMap'
 import Footer from './Footer'
+
+const MainScene = dynamic(() => import('./MainScene'), { ssr: true })
 
 export default function Scene(props) {
   const started = useStore((state) => state.started)
@@ -15,7 +16,7 @@ export default function Scene(props) {
     <div className="fixed w-screen h-screen">
       {!started ? (
         <div
-          className="absolute inset-0 text-4xl text-gray-700 cursor-pointer flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center text-4xl text-gray-700 cursor-pointer"
           onClick={start}
         >
           Click to start
@@ -25,7 +26,7 @@ export default function Scene(props) {
           <div className="absolute w-full h-full cursor-grab">
             <MainScene {...props} />
           </div>
-          <div className="hidden md:block absolute w-screen-20 h-screen-20 bottom-0 right-0 m-4 rounded-sm border-2 border-solid border-gray-700">
+          <div className="absolute bottom-0 right-0 hidden m-4 border-2 border-gray-700 border-solid rounded-sm md:block w-screen-20 h-screen-20">
             <div className="absolute inset-0">
               <HeatMap />
             </div>
@@ -33,10 +34,6 @@ export default function Scene(props) {
           </div>
         </>
       )}
-      {/* <Loader
-        containerStyles={{ opacity: 0.75 }}
-        dataInterpolation={(p) => `Loading ${(p * 100).toFixed(2)}%`}
-      /> */}
       <Header />
       <Footer />
     </div>

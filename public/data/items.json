@@ -37,12 +37,12 @@
   },
   {
     "index": 6,
-    "position": [0, 20, 10, 10],
+    "position": [-2, 24, 10, 10],
     "type": "object",
     "src": "ligher.glb",
     "scale": 0.3,
     "rotation": "-y",
-    "axis": null
+    "axis": "y"
   },
   {
     "index": 7,
@@ -183,12 +183,12 @@
   },
   {
     "index": 29,
-    "position": [-55, 2, 10, 10],
+    "position": [-58, 2, 10, 10],
     "type": "object",
     "src": "STRAWBERRYSACK.glb",
     "scale": 0.5,
     "rotation": "-y",
-    "axis": null
+    "axis": "y"
   },
   {
     "index": 30,
@@ -246,7 +246,7 @@
     "src": "humpty.glb",
     "scale": 0.25,
     "rotation": "-y",
-    "axis": null
+    "axis": "y"
   },
   {
     "index": 39,
@@ -323,8 +323,11 @@
   {
     "index": 51,
     "position": [-26, -35, 10, 10],
-    "type": "image",
-    "src": "/textures/051.png"
+    "type": "object",
+    "src": "Table.glb",
+    "scale": 0.7,
+    "rotation": "-y",
+    "axis": "y"
   },
   {
     "index": 52,
@@ -356,9 +359,9 @@
     "position": [63, -29, 10, 10],
     "type": "object",
     "src": "flameprincess.glb",
-    "scale": 0.1,
+    "scale": 0.35,
     "rotation": "-y",
-    "axis": null
+    "axis": "y"
   },
   {
     "index": 58,

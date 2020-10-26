@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Plane } from '@react-three/drei'
+import { LinearFilter, RGBFormat } from 'three'
 
 import GifLoader from '../lib/gif-loader/gif-loader'
 import { useStore } from '../hooks/useStore'
@@ -35,7 +36,14 @@ export default function GifItem({ item, scale, index, ...props }) {
 
   return (
     <Plane scale={[w, h, csZ]} args={[0, 0, 1, 1]} {...props}>
-      <meshBasicMaterial attach="material" map={map} transparent />
+      <meshBasicMaterial
+        minFilter={LinearFilter}
+        magFilter={LinearFilter}
+        format={RGBFormat}
+        attach="material"
+        map={map}
+        transparent
+      />
     </Plane>
   )
 }
