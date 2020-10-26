@@ -1,153 +1,393 @@
 [
   {
     "index": 0,
-    "position": [9, -17, 10, 10],
-    "type": "image",
+    "position": [-76, 37, 20, 15],
+    "type": "about",
     "src": "/textures/000.png"
   },
   {
     "index": 1,
-    "position": [0, 0, 10, 10],
+    "position": [-55, 37, 10, 10],
     "type": "image",
     "src": "/textures/001.png"
   },
   {
     "index": 2,
-    "position": [-41, -31, 10, 10],
+    "position": [-44, 21, 10, 10],
     "type": "image",
     "src": "/textures/002.png"
   },
   {
     "index": 3,
-    "position": [23, 2, 10, 10],
+    "position": [-39, 23, 10, 10],
     "type": "image",
     "src": "/textures/003.png"
   },
   {
     "index": 4,
-    "position": [30, -6, 10, 10],
+    "position": [-21, 27, 10, 10],
     "type": "image",
     "src": "/textures/004.png"
   },
   {
     "index": 5,
-    "position": [-5, -6, 10, 10],
+    "position": [-9, 32, 10, 10],
     "type": "image",
     "src": "/textures/005.png"
   },
   {
     "index": 6,
-    "position": [-21, 3, 10, 10],
-    "type": "image",
-    "src": "/textures/006.png"
+    "position": [0, 20, 10, 10],
+    "type": "object",
+    "src": "ligher.glb",
+    "scale": 0.3,
+    "rotation": "-y",
+    "axis": null
   },
   {
     "index": 7,
-    "position": [-28, -17, 10, 10],
+    "position": [11, 29, 10, 10],
     "type": "image",
     "src": "/textures/007.png"
   },
   {
     "index": 8,
-    "position": [12, 19, 10, 10],
+    "position": [20, 28, 10, 10],
     "type": "image",
     "src": "/textures/008.png"
   },
   {
     "index": 9,
-    "position": [14, -32, 10, 10],
+    "position": [41, 25, 10, 10],
     "type": "image",
     "src": "/textures/009.png"
   },
   {
     "index": 10,
-    "position": [26, 27, 10, 10],
+    "position": [48, 33, 10, 10],
     "type": "image",
     "src": "/textures/010.png"
   },
   {
     "index": 11,
-    "position": [-10, -24, 10, 10],
+    "position": [62, 28, 10, 10],
     "type": "image",
     "src": "/textures/011.png"
   },
   {
     "index": 12,
-    "position": [-33, -3, 10, 10],
+    "position": [-70, 12, 10, 10],
     "type": "image",
     "src": "/textures/012.png"
   },
   {
     "index": 13,
-    "position": [-26, 10, 10, 10],
+    "position": [-50, 11, 10, 10],
     "type": "image",
     "src": "/textures/013.png"
   },
   {
     "index": 14,
-    "position": [-40, 28, 10, 10],
+    "position": [-45, 8, 10, 10],
     "type": "image",
     "src": "/textures/014.png"
   },
   {
     "index": 15,
-    "position": [-50, -3, 10, 10],
-    "type": "video",
-    "src": "/textures/100.mp4",
-    "sound": "/textures/100.mp3"
-  },
-  {
-    "index": 16,
-    "position": [25, -25, 10, 10],
-    "type": "video",
-    "src": "/textures/101.mp4",
-    "sound": "/textures/101.mp3"
-  },
-  {
-    "index": 17,
-    "position": [-9, 32, 10, 10],
-    "type": "gif",
-    "src": "https://media3.giphy.com/media/3o72F8t9TDi2xVnxOE/giphy.gif?cid=ecf05e47ywsni6o654devevsops14x9m1gkkf172hze4odnv&rid=giphy.gif"
-  },
-  {
-    "index": 18,
-    "position": [-12, 22, 10, 10],
+    "position": [-32, 6, 10, 10],
     "type": "object",
-    "src": "planet.gltf",
-    "scale": 0.5,
-    "rotation": "-y",
-    "axis": "y"
-  },
-  {
-    "index": 19,
-    "position": [12, -22, 10, 10],
-    "type": "object",
-    "src": "keys.gltf",
-    "scale": 2,
-    "rotation": "-z",
-    "axis": "x"
-  },
-  {
-    "index": 20,
-    "position": [42, -2, 10, 10],
-    "type": "object",
-    "src": "keyhole.glb",
-    "scale": 2.5,
+    "src": "cookieman.glb",
+    "scale": 0.7,
     "rotation": "x",
     "axis": "z"
   },
   {
+    "index": 16,
+    "position": [-28, 13, 10, 10],
+    "type": "image",
+    "src": "/textures/016.png"
+  },
+  {
+    "index": 17,
+    "position": [-24, 20, 10, 10],
+    "type": "image",
+    "src": "/textures/017.png"
+  },
+  {
+    "index": 18,
+    "position": [-16, 2, 10, 10],
+    "type": "image",
+    "src": "/textures/018.png"
+  },
+  {
+    "index": 19,
+    "position": [-4, 10, 10, 10],
+    "type": "image",
+    "src": "/textures/019.png"
+  },
+  {
+    "index": 20,
+    "position": [5, 19, 10, 10],
+    "type": "image",
+    "src": "/textures/020.png"
+  },
+  {
     "index": 21,
-    "position": [4, -42, 10, 10],
-    "type": "text",
-    "eng": "/data/eng.txt",
-    "rus": "/data/rus.txt",
-    "engfont": "several-mono.ttf",
-    "rusfont": "iosevka-fixed.ttf"
+    "position": [7, 9, 10, 10],
+    "type": "image",
+    "src": "/textures/021.png"
   },
   {
     "index": 22,
-    "position": [-60, 40, 20, 30],
-    "type": "about"
+    "position": [17, 15, 10, 10],
+    "type": "image",
+    "src": "/textures/022.png"
+  },
+  {
+    "index": 23,
+    "position": [36, 15, 10, 10],
+    "type": "text",
+    "eng": "/data/eng.txt",
+    "rus": "/data/rus.txt",
+    "font": "iosevka-fixed.ttf"
+  },
+  {
+    "index": 24,
+    "position": [43, 8, 10, 10],
+    "type": "image",
+    "src": "/textures/024.png"
+  },
+  {
+    "index": 25,
+    "position": [52, 15, 10, 10],
+    "type": "image",
+    "src": "/textures/025.png"
+  },
+  {
+    "index": 26,
+    "position": [65, 13, 10, 10],
+    "type": "image",
+    "src": "/textures/026.png"
+  },
+  {
+    "index": 27,
+    "position": [-74, -5, 10, 10],
+    "type": "image",
+    "src": "/textures/027.png"
+  },
+  {
+    "index": 28,
+    "position": [-66, -1, 10, 10],
+    "type": "image",
+    "src": "/textures/028.png"
+  },
+  {
+    "index": 29,
+    "position": [-55, 2, 10, 10],
+    "type": "object",
+    "src": "STRAWBERRYSACK.glb",
+    "scale": 0.5,
+    "rotation": "-y",
+    "axis": null
+  },
+  {
+    "index": 30,
+    "position": [-45, -1, 10, 10],
+    "type": "video",
+    "src": "/textures/030.mp4",
+    "sound": "/textures/030.mp3"
+  },
+  {
+    "index": 31,
+    "position": [-34, -5, 10, 10],
+    "type": "image",
+    "src": "/textures/031.png"
+  },
+  {
+    "index": 32,
+    "position": [-26, -11, 10, 10],
+    "type": "image",
+    "src": "/textures/032.png"
+  },
+  {
+    "index": 33,
+    "position": [-9, -11, 10, 10],
+    "type": "image",
+    "src": "/textures/033.png"
+  },
+  {
+    "index": 34,
+    "position": [2, -8, 10, 10],
+    "type": "image",
+    "src": "/textures/034.png"
+  },
+  {
+    "index": 35,
+    "position": [11, -10, 10, 10],
+    "type": "image",
+    "src": "/textures/035.png"
+  },
+  {
+    "index": 36,
+    "position": [25, 2, 10, 10],
+    "type": "image",
+    "src": "/textures/036.png"
+  },
+  {
+    "index": 37,
+    "position": [38, -8, 10, 10],
+    "type": "gif",
+    "src": "/textures/037.gif"
+  },
+  {
+    "index": 38,
+    "position": [46, 2, 10, 10],
+    "type": "object",
+    "src": "humpty.glb",
+    "scale": 0.25,
+    "rotation": "-y",
+    "axis": null
+  },
+  {
+    "index": 39,
+    "position": [57, -4, 10, 10],
+    "type": "image",
+    "src": "/textures/039.png"
+  },
+  {
+    "index": 40,
+    "position": [63, -7, 10, 10],
+    "type": "image",
+    "src": "/textures/040.png"
+  },
+  {
+    "index": 41,
+    "position": [-72, -16, 10, 10],
+    "type": "image",
+    "src": "/textures/041.png"
+  },
+  {
+    "index": 42,
+    "position": [-54, -13, 10, 10],
+    "type": "image",
+    "src": "/textures/042.png"
+  },
+  {
+    "index": 43,
+    "position": [-43, -18, 10, 10],
+    "type": "image",
+    "src": "/textures/043.png"
+  },
+  {
+    "index": 44,
+    "position": [-18, -24, 10, 10],
+    "type": "image",
+    "src": "/textures/044.png"
+  },
+  {
+    "index": 45,
+    "position": [6, -23, 10, 10],
+    "type": "image",
+    "src": "/textures/045.png"
+  },
+  {
+    "index": 46,
+    "position": [24, -17, 10, 10],
+    "type": "image",
+    "src": "/textures/046.png"
+  },
+  {
+    "index": 47,
+    "position": [36, -20, 10, 10],
+    "type": "image",
+    "src": "/textures/047.png"
+  },
+  {
+    "index": 48,
+    "position": [51, -13, 10, 10],
+    "type": "image",
+    "src": "/textures/048.png"
+  },
+  {
+    "index": 49,
+    "position": [-63, -25, 10, 10],
+    "type": "image",
+    "src": "/textures/049.png"
+  },
+  {
+    "index": 50,
+    "position": [-52, -29, 10, 10],
+    "type": "image",
+    "src": "/textures/050.png"
+  },
+  {
+    "index": 51,
+    "position": [-26, -35, 10, 10],
+    "type": "image",
+    "src": "/textures/051.png"
+  },
+  {
+    "index": 52,
+    "position": [-13, -31, 10, 10],
+    "type": "video",
+    "src": "/textures/052.mp4",
+    "sound": "/textures/052.mp3"
+  },
+  {
+    "index": 53,
+    "position": [22, -29, 10, 10],
+    "type": "image",
+    "src": "/textures/053.png"
+  },
+  {
+    "index": 55,
+    "position": [35, -26, 10, 10],
+    "type": "image",
+    "src": "/textures/055.png"
+  },
+  {
+    "index": 56,
+    "position": [51, -24, 10, 10],
+    "type": "image",
+    "src": "/textures/056.png"
+  },
+  {
+    "index": 57,
+    "position": [63, -29, 10, 10],
+    "type": "object",
+    "src": "flameprincess.glb",
+    "scale": 0.1,
+    "rotation": "-y",
+    "axis": null
+  },
+  {
+    "index": 58,
+    "position": [18, -40, 10, 10],
+    "type": "image",
+    "src": "/textures/058.png"
+  },
+  {
+    "index": 59,
+    "position": [34, -38, 10, 10],
+    "type": "image",
+    "src": "/textures/059.png"
+  },
+  {
+    "index": 60,
+    "position": [45, -43, 10, 10],
+    "type": "image",
+    "src": "/textures/060.png"
+  },
+  {
+    "index": 61,
+    "position": [51, -33, 10, 10],
+    "type": "image",
+    "src": "/textures/061.png"
+  },
+  {
+    "index": 62,
+    "position": [59, -39, 10, 10],
+    "type": "image",
+    "src": "/textures/062.png"
   }
 ]

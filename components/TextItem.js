@@ -17,7 +17,7 @@ export default function TextItem({ item, scale, index, ...props }) {
   }, [lang])
 
   useMemo(() => {
-    setScales(index, [14, 11])
+    setScales(index, [17, 8])
   }, [ref.current, text])
 
   return (
@@ -26,11 +26,11 @@ export default function TextItem({ item, scale, index, ...props }) {
         ref={ref}
         color={'#000'}
         fontSize={0.3}
-        maxWidth={10}
+        maxWidth={14}
         lineHeight={1.2}
         letterSpacing={0.05}
         textAlign={'left'}
-        font={`/fonts/${item[`${lang}font`]}`}
+        font={`/fonts/${item.font}`}
         anchorX="center"
         anchorY="middle"
       >

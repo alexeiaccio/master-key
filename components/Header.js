@@ -10,10 +10,10 @@ export default function Header() {
 
   return (
     <header
-      className="absolute inset-0 bottom-auto flex flex-row items-baseline justify-between p-4 font-mono text-sm"
+      className="absolute inset-0 bottom-auto flex flex-row items-center justify-between p-4 font-mono text-sm"
       style={{ zIndex: 15940005 }}
     >
-      <h1 className="h-6 text-black">
+      <h1 className="h-16 w-32 text-black">
         <MasterKey />
       </h1>
       <div
