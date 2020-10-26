@@ -325,7 +325,7 @@
     "position": [-26, -35, 10, 10],
     "type": "object",
     "src": "Table.glb",
-    "scale": 0.7,
+    "scale": 1,
     "rotation": "-y",
     "axis": "y"
   },

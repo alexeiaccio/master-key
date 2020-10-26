@@ -44,6 +44,10 @@ export const useStore = create((set) => ({
     })),
   setMoveTo: (moveTo) => set(() => ({ moveTo })),
   moveToHome: () => set((state) => ({ moveTo: state.home })),
+  moveToLeft: () => set((state) => ({ moveTo: [state.bounds[0], state.positionY] })),
+  moveToRight: () => set((state) => ({ moveTo: [state.bounds[2], state.positionY] })),
+  moveToTop: () => set((state) => ({ moveTo: [state.positionX, state.bounds[1]] })),
+  moveToBottom: () => set((state) => ({ moveTo: [state.positionX, state.bounds[3]] })),
   setHome: (home) => set(() => ({ home })),
   setBounds: (bounds) => set(() => ({ bounds })),
   swing: () => set((state) => ({ moveTo: state.bounds ? [

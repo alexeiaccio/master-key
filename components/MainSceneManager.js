@@ -16,7 +16,10 @@ export default function MainSceneManager({ items }) {
   const positionX = useStore((state) => state.positionX)
   const positionY = useStore((state) => state.positionY)
   const bounds = useStore((state) => state.bounds)
-  const setMoveTo = useStore((state) => state.setMoveTo)
+  const moveToLeft = useStore((state) => state.moveToLeft)
+  const moveToRight = useStore((state) => state.moveToRight)
+  const moveToTop = useStore((state) => state.moveToTop)
+  const moveToBottom = useStore((state) => state.moveToBottom)
 
   useEffect(() => {
     camera.zoom = zoom
@@ -49,16 +52,20 @@ export default function MainSceneManager({ items }) {
     moveToHome()
   }, [items, width, height])
 
-  // useEffect(() => {
-  //   if (positionX > (bounds?.[2] || 0)) {
-  //     console.log('moveTo', bounds[0])
-  //     setMoveTo(bounds[0], positionY)
-  //   }
-  //   if (positionX < (bounds?.[0] || 0)) {
-  //     console.log('moveTo', bounds[2])
-  //     setMoveTo(bounds[2], positionY)
-  //   }
-  // }, [positionX, positionY, bounds])
+  useEffect(() => {
+    if (positionX > (bounds?.[2] || 0)) {
+      moveToLeft()
+    }
+    if (positionX < (bounds?.[0] || 0)) {
+      moveToRight()
+    }
+    if (positionY > (bounds?.[1] || 0) + height * 0.005) {
+      moveToBottom()
+    }
+    if (positionY < (bounds?.[3] || 0) - height * 0.005) {
+      moveToTop()
+    }
+  }, [positionX, positionY, bounds])
 
   return null
 }

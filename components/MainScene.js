@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
-import { Loader, MapControls } from '@react-three/drei'
+import { /* Loader, */ MapControls } from '@react-three/drei'
 
 import MainSceneItems from './MainSceneItems'
 import MainSceneMenager from './MainSceneManager'
@@ -26,10 +26,10 @@ export default function MainScene({ items }) {
           <MapControls enableDamping={false} enableZoom={false} enableRotate={false}/>
         </Suspense>
       </Canvas>
-      <Loader
+      {/* <Loader
         containerStyles={{ opacity: 0.75 }}
         dataInterpolation={(p) => `Loading ${(p * 100).toFixed(2)}%`}
-      />
+      /> */}
     </>
   )
 }
