@@ -1,12 +1,9 @@
-import dynamic from 'next/dynamic'
-
 import { useStore } from '../hooks/useStore'
 import Header from './Header'
 import HeatMap from './HeatMap'
 import Minimap from './MiniMap'
 import Footer from './Footer'
-
-const MainScene = dynamic(() => import('./MainScene'), { ssr: true })
+import MainScene from './MainScene'
 
 export default function Scene(props) {
   const started = useStore((state) => state.started)
