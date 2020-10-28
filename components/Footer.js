@@ -9,41 +9,37 @@ export default function Footer() {
   const noop = useStore((state) => state.noop)
 
   return (
-    <footer className="fixed bottom-0 left-0 flex flex-col items-center justify-center p-4 font-mono text-sm overflow-visible">
+    <footer className="fixed bottom-0 left-0 flex flex-col items-center justify-center p-4 overflow-visible font-mono text-sm text-gray-700">
       <div
-        className={`${
-          zoom === 50 && 'cursor-pointer text-gray-700'
-        } font-sans text-gray-500`}
+        className={`${zoom === 50 && 'cursor-pointer opacity-100'} font-sans opacity-0`}
         onClick={zoom === 50 ? swing : noop}
       >
         swing
       </div>
       <div
         className={`${
-          zoom === 50 && 'cursor-pointer text-gray-700'
-        } font-sans text-gray-500`}
+          zoom === 50 && 'cursor-pointer opacity-100'
+        } font-sans opacity-0`}
         onClick={zoom === 50 ? moveToHome : noop}
       >
         back to start
       </div>
       <div>
-        <span
-          className={`${
-            zoom === 5 && 'cursor-pointer text-gray-700'
-          } font-sans text-gray-500`}
-          onClick={zoom === 5 ? zoomIn : noop}
-        >
-          zoom in
-        </span>
-        {' / '}
-        <span
-          className={`${
-            zoom === 50 && 'cursor-pointer text-gray-700'
-          } font-sans text-gray-500`}
-          onClick={zoom === 50 ? zoomOut : noop}
-        >
-          zoom out
-        </span>
+        {zoom === 50 ? (
+          <span
+            className="font-sans cursor-pointer"
+            onClick={zoomOut}
+          >
+            zoom out
+          </span>
+        ) : (
+          <span
+            className="font-sans cursor-pointer"
+            onClick={zoomIn}
+          >
+            zoom in
+          </span>
+        )}
       </div>
     </footer>
   )

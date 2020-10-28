@@ -1,9 +1,10 @@
 import { Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
-import { /* Loader, */ MapControls } from '@react-three/drei'
+import { Loader, MapControls, Html } from '@react-three/drei'
 
 import MainSceneItems from './MainSceneItems'
 import MainSceneMenager from './MainSceneManager'
+// import MainSceneBorders from './MainSceneBorders'
 
 export default function MainScene({ items }) {
   return (
@@ -20,16 +21,26 @@ export default function MainScene({ items }) {
       >
         <color attach="background" args={[0xfff389]} />
         <ambientLight intensity={0.2} />
-        <Suspense fallback={null}>
+        <Suspense
+          fallback={
+            <Html fullscreen>
+              <Loader
+                containerStyles={{ opacity: 0.75 }}
+                dataInterpolation={(p) => `Loading ${(p * 100).toFixed(2)}%`}
+              />
+            </Html>
+          }
+        >
+          {/* <MainSceneBorders /> */}
           <MainSceneItems items={items} />
           <MainSceneMenager items={items} />
-          <MapControls enableDamping={false} enableZoom={false} enableRotate={false}/>
+          <MapControls
+            enableDamping={false}
+            enableZoom={false}
+            enableRotate={false}
+          />
         </Suspense>
       </Canvas>
-      {/* <Loader
-        containerStyles={{ opacity: 0.75 }}
-        dataInterpolation={(p) => `Loading ${(p * 100).toFixed(2)}%`}
-      /> */}
     </>
   )
 }

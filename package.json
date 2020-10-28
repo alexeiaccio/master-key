@@ -11,6 +11,7 @@
     "@react-three/drei": "^2.1.1-beta.2",
     "drei": "0.0.60",
     "next": "^9.5.4-canary.23",
+    "next-seo": "^4.14.0",
     "omggif": "^1.0.10",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
