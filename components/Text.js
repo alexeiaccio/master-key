@@ -9,7 +9,9 @@ export default function Text() {
         {`
           .text {
             color: #000;
-            background: linear-gradient(180deg, #fff, transparent);
+            background: linear-gradient(180deg, #fff, #fff389);
+            border: 2px solid #4a5568;
+            border-radius: 4px;
             font-size: 1rem;
             font-family: serif;
             margin: 0 1rem;
@@ -18,6 +20,7 @@ export default function Text() {
             height: 20rem;
             position: relative;
             padding: 0 1rem;
+            cursor: default;
           }
           .section {
             padding: 1rem 0;

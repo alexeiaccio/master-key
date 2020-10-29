@@ -23,7 +23,13 @@ export default function Header() {
         }}
         onClick={toggleSound}
       >
-        {soundOn ? 'sound: on' : 'sound: off'}
+        {soundOn
+          ? lang === 'eng'
+            ? 'sound: on'
+            : 'звук: вкл'
+          : lang === 'eng'
+          ? 'sound: off'
+          : 'звук: выкл'}
       </div>
       <div
         className={`ml-4 font-sans text-gray-700 flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${

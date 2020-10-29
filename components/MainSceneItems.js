@@ -1,7 +1,29 @@
+import { Suspense } from 'react'
 import { useFrame } from 'react-three-fiber'
+import { Html, useProgress, Plane } from '@react-three/drei'
+import dynamic from 'next/dynamic'
 
 import { useStore } from '../hooks/useStore'
-import Item from './Item'
+
+const Item = dynamic(() => import('./Item'), { ssr: false })
+
+function Loader({ item }) {
+  const progress = useProgress((state) => state.progress)
+  const { position } = item
+  const [x, y, w, h] = position
+  return (
+    <group>
+      <Plane scale={[w, h, 1]} args={[0, 0, 1, 1]} position={[x, y, 1]}>
+        <meshPhongMaterial attach="material" wireframe />
+      </Plane>
+      <Html center scaleFactor={0.02} scale={[w, h, 1]} position={[x, y, 1]}>
+        <div className="font-sans text-center text-gray-700 whitespace-no-wrap">
+          {progress.toFixed(2)}%
+        </div>
+      </Html>
+    </group>
+  )
+}
 
 export default function Items({ items }) {
   const updatePositionX = useStore((state) => state.updatePositionX)
@@ -16,10 +38,11 @@ export default function Items({ items }) {
     updateHeight(Math.abs(~~camera.top) + Math.abs(~~camera.bottom))
   })
 
-  return items.map((item) => item ? (
-    <Item
-      key={`item-${item.index}`}
-      item={item}
-    />
-  ) : null)
+  return items.map((item) =>
+    item ? (
+      <Suspense fallback={<Loader key={`item-${item.index}`} item={item} />}>
+        <Item key={`item-${item.index}`} item={item} />
+      </Suspense>
+    ) : null
+  )
 }

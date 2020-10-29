@@ -37,17 +37,17 @@ export default function MainSceneManager({ items }) {
     const start = items.reduce((acc, { position }) => {
       if (acc.length !== 0) {
         let res = acc
-        res[0] = acc[0] > position[0] ? position[0] : acc[0]
-        res[1] = acc[1] < position[1] ? position[1] : acc[1]
-        res[2] = acc[2] < position[0] ? position[0] : acc[2]
-        res[3] = acc[3] > position[1] ? position[1] : acc[3]
+        res[0] = acc[0] > position[0] ? position[0] - 5 : acc[0]
+        res[1] = acc[1] < position[1] ? position[1] + 5 : acc[1]
+        res[2] = acc[2] < position[0] ? position[0] + 5 : acc[2]
+        res[3] = acc[3] > position[1] ? position[1] - 5 : acc[3]
         return res
       }
 
       return [position[0], position[1], position[0], position[1]]
     }, [])
 
-    setHome([start[0] - 0.1 + width * 0.01, start[1] + 2 - height * 0.01])
+    setHome([start[0] + width * 0.01, start[1] - height * 0.01 - 0.6])
     setBounds(start)
     moveToHome()
   }, [items, width, height])

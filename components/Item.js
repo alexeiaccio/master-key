@@ -17,7 +17,7 @@ export default function Item({ item }) {
       <ImageItem
         index={index}
         item={item}
-        scale={[w || scW, h || scH, csZ]}
+        scale={[w || scW, h || scH, 1]}
         position={[x, y, 1]}
       />
     )
@@ -57,21 +57,12 @@ export default function Item({ item }) {
   if (item && item.type === 'about') {
     return (
       <Html
+        center
         scaleFactor={0.02}
         scale={[w || scW, h || scH, csZ]}
         position={[x, y, 1]}
       >
-        <div className="relative cursor-default">
-          <Text />
-          <div
-            className="absolute bottom-0 transform translate-y-full bg-no-repeat bg-contain"
-            style={{
-              width: '60rem',
-              height: '20rem',
-              backgroundImage: 'url(/textures/000.png)',
-            }}
-          />
-        </div>
+        <Text />
       </Html>
     )
   }
