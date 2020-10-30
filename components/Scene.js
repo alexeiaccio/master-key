@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { useStore } from '../hooks/useStore'
 import Header from './Header'
 import HeatMap from './HeatMap'
@@ -26,16 +28,21 @@ export default function Scene(props) {
   function handleStart() {
     start()
 
-    if (typeof document !== undefined && typeof window !== undefined) {
+    if (typeof document !== undefined) {
       if (!document.fullscreenElement) {
         launchFullScreen(document.documentElement)
       }
+    }
+  }
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
       window.addEventListener('resize', () => {
         console.log('resize')
         zoomIn()
       })
     }
-  }
+  }, [])
 
   return (
     <div className="fixed w-screen h-screen">
@@ -48,17 +55,17 @@ export default function Scene(props) {
             <div>{lang === 'eng' ? 'click to start' : 'клик чтобы начать'}</div>
             <div>{lang === 'eng' ? '(fullscreen)' : '(полный экран)'}</div>
           </div>
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center text-xl text-gray-700 md:hidden"
-          >
-            <div>{lang === 'eng' ? 'open on desktop' : 'смотрите на большом экране'}</div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-xl text-gray-700 md:hidden">
+            <div>
+              {lang === 'eng'
+                ? 'open on desktop'
+                : 'смотрите на большом экране'}
+            </div>
           </div>
         </>
       ) : (
         <>
-          <div
-            className="absolute hidden w-full h-full md:block cursor-grab"
-          >
+          <div className="absolute hidden w-full h-full md:block cursor-grab">
             <MainScene {...props} />
             {zoom !== 50 ? <div className="absolute inset-0" /> : null}
           </div>

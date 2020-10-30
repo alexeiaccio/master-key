@@ -39,7 +39,7 @@ export const useStore = create((set) => ({
   zoomIn: () =>
     set((state) => ({
       zoom: 50,
-      moveTo: state.prevPosition,
+      moveTo: state.prevPosition || state.home,
       prevPosition: null,
     })),
   setMoveTo: (moveTo) => set(() => ({ moveTo })),
