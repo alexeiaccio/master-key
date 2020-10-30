@@ -8,7 +8,7 @@ export default function Info() {
   return (
     <div className="flex flex-col items-center justify-center mx-4 overflow-visible font-mono text-sm text-gray-700">
       <div
-        className="w-8 font-sans text-center cursor-pointer"
+        className="font-sans text-right cursor-pointer"
         onClick={() => setOpened((state) => !state)}
       >
         {opened

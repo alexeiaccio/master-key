@@ -22,8 +22,9 @@ export default function GLTFItem({ item, ...props }) {
         <group ref={ref}>
           <primitive object={scene} dispose={null} />
         </group>
-        <pointLight position={[10, 10, 10]} intensity={0.1} />
       </group>
+      <directionalLight position={[2, 2, 4]} intensity={0.2} />
+      <directionalLight position={[-2, -2, 4]} intensity={0.2} />
     </group>
   )
 }
