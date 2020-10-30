@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
           site_name: 'Master Key',
           images: [
             {
-              url: 'https://masterkey.garden/og-mage.png',
+              url: 'https://masterkey.garden/og-image.png',
               width: 1200,
               height: 630,
               alt: 'Master Key',
