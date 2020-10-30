@@ -127,15 +127,9 @@
   },
   {
     "index": 20,
-    "position": [42, -13, 10, 10],
+    "position": [43, -18, 10, 10],
     "type": "image",
     "src": "/textures/020.png"
-  },
-  {
-    "index": 21,
-    "position": [44, -20, 10, 10],
-    "type": "image",
-    "src": "/textures/021.png"
   },
   {
     "index": 22,
@@ -389,15 +383,9 @@
   },
   {
     "index": 61,
-    "position": [-47, -32, 10, 10],
+    "position": [-44, -34, 10, 10],
     "type": "image",
     "src": "/textures/061.png"
-  },
-  {
-    "index": 62,
-    "position": [-41, -38, 10, 10],
-    "type": "image",
-    "src": "/textures/062.png"
   },
   {
     "index": 63,

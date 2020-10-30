@@ -13,11 +13,11 @@ export default function Header() {
       className="absolute inset-0 bottom-auto flex flex-row items-center justify-between p-4 font-mono text-sm"
       style={{ zIndex: 15940005 }}
     >
-      <h1 className="h-16 w-32 text-black">
+      <h1 className="w-32 h-8 text-black">
         <MasterKey />
       </h1>
       <div
-        className="ml-auto cursor-pointer font-sans text-gray-700"
+        className="ml-auto font-sans text-gray-700 cursor-pointer"
         style={{
           textDecoration: !soundOn ? 'line-through' : 'none',
         }}

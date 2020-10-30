@@ -16,48 +16,32 @@ export async function getStaticProps() {
   }
 }
 
-// function launchFullScreen(element) {
-//   if (element.requestFullScreen) {
-//     element.requestFullScreen()
-//   } else if (element.mozRequestFullScreen) {
-//     element.mozRequestFullScreen()
-//   } else if (element.webkitRequestFullScreen) {
-//     element.webkitRequestFullScreen()
-//   }
-// }
-
 export default function Index({ items }) {
   const router = useRouter()
   const lang = useStore((state) => state.lang)
-  // const zoom = useStore((state) => state.zoom)
   const toggleLang = useStore((state) => state.toggleLang)
   const asPath = router.asPath
 
   useEffect(() => {
-    if (typeof navigator !== undefined && asPath === '/') {
-      if (navigator.language.includes('ru')) {
-        router.replace('/rus')
-        if (lang !== 'rus') {
-          toggleLang()
+    if (typeof navigator !== undefined) {
+      if (asPath === '/') {
+        if (navigator.language.includes('ru')) {
+          router.replace('/rus')
+          if (lang !== 'rus') {
+            toggleLang()
+          }
+        } else {
+          router.replace('/eng')
+          if (lang !== 'eng') {
+            toggleLang()
+          }
         }
-      } else {
-        router.replace('/eng')
-        if (lang !== 'eng') {
-          toggleLang()
-        }
+      } else if (asPath === '/eng' && lang !== 'eng') {
+        toggleLang()
+      } else if (asPath === '/rus' && lang !== 'rus') {
+        toggleLang()
       }
     }
-
-    // if (typeof document !== undefined) {
-    //   if (!document.fullscreenElement) {
-    //     launchFullScreen(document.documentElement)
-    //     document.addEventListener('fullscreenchange', () => {
-    //       if (document.fullscreenElement && zoom !== 50) {
-    //         document.exitFullscreen()
-    //       }
-    //     })
-    //   }
-    // }
   }, [])
 
   const title = lang === 'rus' ? 'Мастер Ключ' : 'Master Key'

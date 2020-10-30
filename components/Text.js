@@ -17,7 +17,7 @@ export default function Text() {
             margin: 0 1rem;
             overflow: scroll;
             width: 40rem;
-            height: 20rem;
+            height: 30rem;
             position: relative;
             padding: 0 1rem;
             cursor: default;

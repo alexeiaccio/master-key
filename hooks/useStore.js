@@ -1,7 +1,7 @@
 import create from 'zustand'
 
 export const useStore = create((set) => ({
-  started: true,
+  started: false,
   width: 0,
   height: 0,
   positionX: 0,
