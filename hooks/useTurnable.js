@@ -9,7 +9,7 @@ export function useTurnable(axis, rotationLimits) {
     if (axis) {
       if (rotationLimits) {
         const current = ref.current.rotation[axis]
-        if (up.current && current >= Math.PI / 2) {
+        if (up.current && current >= Math.PI) {
           up.current = false
         } else if (!up.current && current <= 0) {
           up.current = true

@@ -313,7 +313,7 @@
     "position": [65, -3, 10, 10],
     "type": "object",
     "src": "Table.glb",
-    "scale": 1,
+    "scale": 0.075,
     "rotation": "-y",
     "axis": "y",
     "rotationLimits": true
