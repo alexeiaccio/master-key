@@ -24,15 +24,10 @@ export default function GLTFItem({ item, ...props }) {
         </group>
       </group>
       <directionalLight
-        position={[0, 0, 10]}
+        position={[1, 1, 10]}
         intensity={0.1}
         color={0xe6fffa}
         castShadow
-      />
-      <directionalLight
-        position={[-2, -2, 0]}
-        intensity={0.05}
-        color={0x63b3ed}
       />
     </group>
   )

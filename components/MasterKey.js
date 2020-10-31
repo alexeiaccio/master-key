@@ -10,7 +10,7 @@ export default function MasterKey(props) {
       item={{
         src: `/textures/logo${lang}.png`,
       }}
-      scale={[0.35, 0.35, 1]}
+      scale={[0.5, 0.5, 1]}
       index={100}
       {...props}
     />

@@ -21,7 +21,7 @@ export default function MainScene({ items }) {
         }}
       >
         <color attach="background" args={[0xfff389]} />
-        <ambientLight intensity={0.9} />
+        <ambientLight intensity={1} />
         <Suspense>
           <MainSceneBorders />
           <MainSceneItems items={items} />

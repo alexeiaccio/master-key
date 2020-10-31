@@ -20,7 +20,7 @@ export default function Text() {
             position: relative;
             padding: 0 1rem;
             cursor: default;
-            transform: translate(-16%, 10%);
+            transform: translate(-20%, 20%);
           }
           .section {
             padding: 1rem 0;

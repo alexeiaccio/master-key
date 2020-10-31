@@ -47,7 +47,7 @@ export default function GifItem({ item, scale, index, ...props }) {
       </Html>
     </group>
   ) : (
-    <Plane scale={[w * 1.75, h * 1.75, csZ]} args={[0, 0, 1, 1]} {...props}>
+    <Plane scale={[w * 2, h * 2, csZ]} args={[0, 0, 1, 1]} {...props}>
       <meshBasicMaterial
         minFilter={LinearFilter}
         magFilter={LinearFilter}
