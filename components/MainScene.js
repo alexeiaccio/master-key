@@ -21,14 +21,14 @@ export default function MainScene({ items }) {
         }}
       >
         <color attach="background" args={[0xfff389]} />
-        <ambientLight intensity={1} />
+        <ambientLight intensity={0.95} />
         <Suspense>
           <MainSceneBorders />
           <MainSceneItems items={items} />
           <MainSceneManager items={items} />
           <MapControls
             enableDamping={false}
-            enableZoom={false}
+            enableZoom={true}
             enableRotate={false}
           />
         </Suspense>
