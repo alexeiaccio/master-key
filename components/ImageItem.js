@@ -34,7 +34,7 @@ export default function ImageItem({ item, scale, index, ...props }) {
       args={[0, 0, 1, 1]}
       {...props}
     >
-      <meshPhongMaterial attach="material" map={map} transparent />
+      <meshBasicMaterial attach="material" map={map} transparent />
     </Plane>
   )
 }

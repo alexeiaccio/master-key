@@ -8,7 +8,7 @@ export default function Minimap({ items }) {
     <Canvas
       orthographic
       camera={{
-        position: [0, 0, 50],
+        position: [-2, 0, 50],
         rotateY: -Math.PI / 4,
         zoom: 1.8,
         far: 1000,

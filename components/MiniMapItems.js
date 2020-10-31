@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { Plane } from '@react-three/drei'
 import { useThree } from 'react-three-fiber'
 
@@ -11,33 +11,33 @@ export default function MiniMapItems({ items }) {
   const zoom = useStore((state) => state.zoom)
   const height = useStore((state) => state.height)
   const width = useStore((state) => state.width)
-  const minimapCamera = useRef()
   const { camera } = useThree()
+  const [minimapCamera, setMinimap] = useState({
+    zoom: camera.zoom.toFixed(),
+  })
 
-  useMemo(() => {
-    minimapCamera.current = {
+  useEffect(() => {
+    camera.zoom = (width / 1900) * 1.8
+    setMinimap({
       zoom: camera.zoom.toFixed(),
-    }
-  }, [camera])
+    })
+  }, [width])
 
   const rect = useMemo(() => {
-    const factor = (minimapCamera.current.zoom / zoom) * 0.4
+    const factor = minimapCamera.zoom / zoom
     return {
       x: positionX * factor,
       y: positionY * factor,
       width: width * factor,
       height: height * factor,
     }
-  }, [minimapCamera.current, positionX, positionY, zoom, height, width])
+  }, [minimapCamera, positionX, positionY, zoom, height, width])
 
   return (
     <group>
       {items.map((item) =>
         item ? (
-          <MiniMapItem
-            key={`minimap-item-${item.index}`}
-            item={item}
-          />
+          <MiniMapItem key={`minimap-item-${item.index}`} item={item} />
         ) : null
       )}
       <Plane

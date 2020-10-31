@@ -7,6 +7,10 @@ body {
   font-family: 'PTMono';
 }
 
+* {
+  @apply select-none;
+}
+
 canvas {
   @apply w-full h-full;
 }

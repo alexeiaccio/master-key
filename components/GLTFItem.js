@@ -12,23 +12,28 @@ const ROTATION = {
   '-z': [0, 0, -Math.PI / 2],
 }
 
-export default function GLTFItem({ item, ...props }) {
+export default function GLTFItem({ item, index, position }) {
   const ref = useTurnable(item.axis, item.rotationLimits)
   const { scene } = useGLTF(`/glb/${item.src}`, true)
 
   return (
-    <group scale={[item.scale, item.scale, item.scale]} {...props}>
+    <group scale={[item.scale, item.scale, item.scale]} position={position}>
       <group rotation={ROTATION[item.rotation]}>
         <group ref={ref}>
-          <primitive object={scene} dispose={null} />
+          <primitive object={scene} dispose={null} castShadow receiveShadow />
         </group>
-        <directionalLight
-          position={[0.5, 1, 5]}
-          intensity={0.1}
-          color={0xbee3f8}
-          castShadow
-        />
       </group>
+      <ambientLight intensity={0.2} />
+      <spotLight
+        intensity={0.5}
+        position={[position[0], position[1], 50]}
+        shadow-bias={-0.00005}
+        penumbra={1}
+        angle={Math.PI / 6}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        castShadow
+      />
     </group>
   )
 }

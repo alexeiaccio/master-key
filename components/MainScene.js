@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
 import { MapControls, Environment } from '@react-three/drei'
+import { StandardEffects } from 'drei'
 
 import MainSceneItems from './MainSceneItems'
 import MainSceneManager from './MainSceneManager'
@@ -22,7 +23,7 @@ export default function MainScene({ items }) {
         pixelRatio={2}
       >
         <color attach="background" args={[0xfff389]} />
-        <ambientLight intensity={0.95} />
+        <ambientLight intensity={0.99} />
         <Suspense>
           <MainSceneBorders />
           <MainSceneItems items={items} />
@@ -40,6 +41,7 @@ export default function MainScene({ items }) {
               ]}
               path={'/textures/'}
             />
+            {/* <StandardEffects /> */}
           </Suspense>
           <MapControls
             enableDamping={false}

@@ -72,7 +72,7 @@ export default function Item({ item }) {
       args={[0, 0, 1, 1]}
       position={[x, y, 1]}
     >
-      <meshPhongMaterial attach="material" wireframe />
+      <meshBasicMaterial attach="material" wireframe />
     </Plane>
   )
 }

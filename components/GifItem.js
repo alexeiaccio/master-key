@@ -23,8 +23,8 @@ export default function GifItem({ item, scale, index, ...props }) {
       setW(isVertical ? scH / ratio : scW)
       setH(isVertical ? scH : ratio * scW)
       setScales(index, [
-        isVertical ? scH / ratio : scW,
-        isVertical ? scH : ratio * scW,
+        (isVertical ? scH / ratio : scW) * 1.5,
+        (isVertical ? scH : ratio * scW) * 1.5,
       ])
     },
     function pr(xhr) {
