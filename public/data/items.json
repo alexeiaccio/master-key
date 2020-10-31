@@ -98,8 +98,8 @@
     "type": "object",
     "src": "cookieman.glb",
     "scale": 0.7,
-    "rotation": "x",
-    "axis": "z"
+    "rotation": "y",
+    "axis": "y"
   },
   {
     "index": 16,

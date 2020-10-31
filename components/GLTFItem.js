@@ -25,7 +25,7 @@ export default function GLTFItem({ item, index, position }) {
       </group>
       <ambientLight intensity={0.2} />
       <spotLight
-        intensity={0.5}
+        intensity={0.2}
         position={[position[0], position[1], 50]}
         shadow-bias={-0.00005}
         penumbra={1}
