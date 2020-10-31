@@ -19,6 +19,7 @@ export default function MainScene({ items }) {
           up: [0, 0, 1],
           autoRotate: false,
         }}
+        pixelRatio={2}
       >
         <color attach="background" args={[0xfff389]} />
         <ambientLight intensity={0.95} />

@@ -1,5 +1,5 @@
-import { Suspense } from 'react'
-import { useFrame } from 'react-three-fiber'
+import { Suspense, useEffect } from 'react'
+import { useFrame, useThree } from 'react-three-fiber'
 import { Html, useProgress, Plane } from '@react-three/drei'
 import dynamic from 'next/dynamic'
 
@@ -30,6 +30,9 @@ export default function Items({ items }) {
   const updatePositionY = useStore((state) => state.updatePositionY)
   const updateWidth = useStore((state) => state.updateWidth)
   const updateHeight = useStore((state) => state.updateHeight)
+  const { gl } = useThree()
+
+  useEffect(() => void gl.setPixelRatio(window.devicePixelRatio || 2), [])
 
   useFrame(({ camera }) => {
     updatePositionX(~~camera.position.x)
