@@ -32,7 +32,9 @@ export default function Items({ items }) {
   const updateHeight = useStore((state) => state.updateHeight)
   const { gl } = useThree()
 
-  useEffect(() => void gl.setPixelRatio(window.devicePixelRatio || 2), [])
+  useEffect(() => void gl.setPixelRatio(window.devicePixelRatio || 2), [
+    window && window.devicePixelRatio,
+  ])
 
   useFrame(({ camera }) => {
     updatePositionX(~~camera.position.x)

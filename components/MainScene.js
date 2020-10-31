@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
-import { MapControls } from '@react-three/drei'
+import { MapControls, Environment } from '@react-three/drei'
 
 import MainSceneItems from './MainSceneItems'
 import MainSceneManager from './MainSceneManager'
@@ -27,6 +27,20 @@ export default function MainScene({ items }) {
           <MainSceneBorders />
           <MainSceneItems items={items} />
           <MainSceneManager items={items} />
+          <Suspense fallback={null}>
+            <Environment
+              background={false}
+              files={[
+                '061.png',
+                '062.png',
+                '056.png',
+                '052.png',
+                '030.png',
+                '024.png',
+              ]}
+              path={'/textures/'}
+            />
+          </Suspense>
           <MapControls
             enableDamping={false}
             enableZoom={false}

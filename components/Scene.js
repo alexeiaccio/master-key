@@ -64,14 +64,14 @@ export default function Scene(props) {
         </>
       ) : (
         <>
-          <div
-            className="absolute hidden w-full h-full md:block cursor-grab"
-            style={{ minWidth: '2440px', minHeight: '1920px' }}
-          >
+          <div className="absolute hidden w-full h-full md:block cursor-grab">
             <MainScene {...props} />
             {zoom !== 50 ? <div className="absolute inset-0" /> : null}
           </div>
-          <div className="fixed bottom-0 right-0 flex-row items-end justify-end hidden m-4 md:flex w-screen-20 h-screen-20">
+          <div
+            className="fixed bottom-0 right-0 flex-row items-end justify-end hidden m-4 md:flex w-screen-20 h-screen-20"
+            style={{ zIndex: 99999999999 }}
+          >
             <div className="relative border-2 border-gray-700 border-solid rounded-sm">
               <div className="absolute inset-0">
                 <HeatMap />

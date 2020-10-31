@@ -10,19 +10,18 @@ export default function Footer() {
   const lang = useStore((state) => state.lang)
 
   return (
-    <footer className="fixed bottom-0 left-0 flex flex-col items-center justify-center p-4 overflow-visible font-mono text-sm text-black">
+    <footer
+      className="fixed bottom-0 left-0 flex flex-col items-center justify-center p-4 overflow-visible font-mono text-sm text-black"
+      style={{ zIndex: 99999999999 }}
+    >
       <div
-        className={`${
-          zoom === 50 && 'cursor-pointer opacity-100'
-        } opacity-0`}
+        className={`${zoom === 50 && 'cursor-pointer opacity-100'} opacity-0`}
         onClick={zoom === 50 ? swing : noop}
       >
         {lang === 'eng' ? 'swing' : 'прыжок'}
       </div>
       <div
-        className={`${
-          zoom === 50 && 'cursor-pointer opacity-100'
-        } opacity-0`}
+        className={`${zoom === 50 && 'cursor-pointer opacity-100'} opacity-0`}
         onClick={zoom === 50 ? moveToHome : noop}
       >
         {lang === 'eng' ? 'back to start' : 'к началу'}

@@ -32,7 +32,7 @@ export const useStore = create((set) => ({
     })),
   zoomOut: () =>
     set((state) => ({
-      zoom: 10,
+      zoom: state.width / 1900 * 10,
       prevPosition: [state.positionX, state.positionY],
       moveTo: [0, 0],
     })),

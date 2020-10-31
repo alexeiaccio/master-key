@@ -57,9 +57,9 @@ export default function Item({ item }) {
   }
   if (item && item.type === 'about') {
     return (
-      <group scale={[w || scW, h || scH, csZ]} position={[x - 3.25, y + 4.37, 1]}>
+      <group scale={[w || scW, h || scH, csZ]} position={[x - 3.5, y + 4.5, 1]}>
         <MasterKey />
-        <Html scaleFactor={0.02}>
+        <Html scaleFactor={0.02} position={[-0.15, -0.1, 1]}>
           <Text />
         </Html>
       </group>

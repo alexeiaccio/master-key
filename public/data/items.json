@@ -109,7 +109,7 @@
   },
   {
     "index": 17,
-    "position": [36, 9, 10, 10],
+    "position": [36, 12, 10, 10],
     "type": "image",
     "src": "/textures/017.png"
   },
@@ -180,7 +180,7 @@
     "position": [53, -7, 10, 10],
     "type": "object",
     "src": "STRAWBERRYSACK.glb",
-    "scale": 0.5,
+    "scale": 0.35,
     "rotation": "-y",
     "axis": "y"
   },
@@ -297,12 +297,6 @@
     "src": "/textures/047.png"
   },
   {
-    "index": 48,
-    "position": [36, -12, 10, 10],
-    "type": "image",
-    "src": "/textures/048.png"
-  },
-  {
     "index": 49,
     "position": [47, 20, 10, 10],
     "type": "image",
@@ -360,7 +354,7 @@
     "position": [35, -39, 10, 10],
     "type": "object",
     "src": "flameprincess.glb",
-    "scale": 0.35,
+    "scale": 0.25,
     "rotation": "-y",
     "axis": "y"
   },

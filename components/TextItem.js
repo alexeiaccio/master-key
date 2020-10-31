@@ -14,7 +14,7 @@ export default function TextItem({ item, scale, index, ...props }) {
   return (
     <group {...props} dispose={null}>
       <Html scaleFactor={0.02} center>
-        <div style={{ width: '42rem' }} className="text-sm">
+        <div style={{ width: '42rem' }} className="text-sm cursor-default">
           {lang === 'eng' ? (
             <div>
               <div className="mb-8">
