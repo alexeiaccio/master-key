@@ -14,9 +14,9 @@ export function useTurnable(axis, rotationLimits) {
         } else if (!up.current && current <= 0) {
           up.current = true
         }
-        ref.current.rotation[axis] = up.current ? current + Math.PI / 90 : current - Math.PI / 90
+        ref.current.rotation[axis] = up.current ? current + Math.PI / 45 : current - Math.PI / 45
       } else {
-        ref.current.rotation[axis] += Math.PI / 90
+        ref.current.rotation[axis] += Math.PI / 45
       }
     }
   })
