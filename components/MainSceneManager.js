@@ -39,8 +39,8 @@ export default function MainSceneManager({ items }) {
         let res = acc
         res[0] = acc[0] > position[0] ? position[0] - 5 : acc[0]
         res[1] = acc[1] < position[1] ? position[1] + 5 : acc[1]
-        res[2] = acc[2] < position[0] ? position[0] + 5 : acc[2]
-        res[3] = acc[3] > position[1] ? position[1] - 5 : acc[3]
+        res[2] = acc[2] < position[0] ? position[0] : acc[2]
+        res[3] = acc[3] > position[1] ? position[1] : acc[3]
         return res
       }
 
