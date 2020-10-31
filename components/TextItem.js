@@ -13,7 +13,7 @@ export default function TextItem({ item, scale, index, ...props }) {
 
   return (
     <group {...props} dispose={null}>
-      <Html center>
+      <Html scaleFactor={0.02} center>
         <div style={{ width: '42rem' }} className="text-sm">
           {lang === 'eng' ? (
             <div>

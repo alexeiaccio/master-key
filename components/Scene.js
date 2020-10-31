@@ -64,7 +64,10 @@ export default function Scene(props) {
         </>
       ) : (
         <>
-          <div className="absolute hidden w-full h-full md:block cursor-grab">
+          <div
+            className="absolute hidden w-full h-full md:block cursor-grab"
+            style={{ minWidth: '2440px', minHeight: '1920px' }}
+          >
             <MainScene {...props} />
             {zoom !== 50 ? <div className="absolute inset-0" /> : null}
           </div>
