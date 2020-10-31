@@ -32,7 +32,7 @@ export const useStore = create((set) => ({
     })),
   zoomOut: () =>
     set((state) => ({
-      zoom: state.width / 1900 * 10,
+      zoom: (state.width / 1900) * 10,
       prevPosition: [state.positionX, state.positionY],
       moveTo: [0, 0],
     })),
@@ -44,15 +44,26 @@ export const useStore = create((set) => ({
     })),
   setMoveTo: (moveTo) => set(() => ({ moveTo })),
   moveToHome: () => set((state) => ({ moveTo: state.home })),
-  moveToLeft: () => set((state) => ({ moveTo: [state.bounds[0], state.positionY] })),
-  moveToRight: () => set((state) => ({ moveTo: [state.bounds[2], state.positionY] })),
-  moveToTop: () => set((state) => ({ moveTo: [state.positionX, state.bounds[1]] })),
-  moveToBottom: () => set((state) => ({ moveTo: [state.positionX, state.bounds[3]] })),
+  moveToLeft: () =>
+    set((state) => ({ moveTo: [state.bounds[0], state.positionY] })),
+  moveToRight: () =>
+    set((state) => ({ moveTo: [state.bounds[2], state.positionY] })),
+  moveToTop: () =>
+    set((state) => ({ moveTo: [state.positionX, state.bounds[1]] })),
+  moveToBottom: () =>
+    set((state) => ({ moveTo: [state.positionX, state.bounds[3]] })),
   setHome: (home) => set(() => ({ home })),
   setBounds: (bounds) => set(() => ({ bounds })),
-  swing: () => set((state) => ({ moveTo: state.bounds ? [
-    Math.random() * (state.bounds[2] - state.bounds[0]) + state.bounds[0],
-    Math.random() * (state.bounds[1] - state.bounds[3]) + state.bounds[3],
-  ] : [0, 0] })),
+  swing: () =>
+    set((state) => ({
+      moveTo: state.bounds
+        ? [
+            Math.random() * ((state.bounds[2] - 15) - (state.bounds[0] + 15)) +
+              (state.bounds[0] + 15),
+            Math.random() * ((state.bounds[1] - 15) - (state.bounds[3] + 15)) +
+              (state.bounds[3] + 15),
+          ]
+        : [0, 0],
+    })),
   noop: () => set(() => ({})),
 }))
