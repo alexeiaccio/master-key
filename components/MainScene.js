@@ -28,7 +28,7 @@ export default function MainScene({ items }) {
           <MainSceneManager items={items} />
           <MapControls
             enableDamping={false}
-            enableZoom={true}
+            enableZoom={false}
             enableRotate={false}
           />
         </Suspense>
