@@ -6,9 +6,9 @@ export default function Info() {
   const [opened, setOpened] = useState(false)
 
   return (
-    <div className="flex flex-col items-center justify-center mx-4 overflow-visible font-mono text-sm text-gray-700">
+    <div className="flex flex-col items-center justify-center mx-4 overflow-visible font-mono text-sm text-black">
       <div
-        className="font-sans text-right cursor-pointer"
+        className="text-right cursor-pointer"
         onClick={() => setOpened((state) => !state)}
       >
         {opened
@@ -20,7 +20,10 @@ export default function Info() {
           : 'инфо'}
       </div>
       {opened ? (
-        <div className="absolute bottom-0 right-0 z-50 p-4 m-6 bg-white border-2 border-gray-700 border-solid">
+        <div
+          className="absolute top-0 right-0 z-50 p-4 my-6 bg-white border-2 border-gray-700 border-solid"
+          style={{ minWidth: '20rem' }}
+        >
           {lang === 'eng' ? (
             <div>
               This work was commissioned for the exhibition “I don’t know

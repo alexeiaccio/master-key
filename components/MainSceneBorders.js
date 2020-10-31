@@ -22,7 +22,7 @@ export default function MainSceneBorders() {
         <meshBasicMaterial attach="material" color={0xcbd5e0} />
       </Plane>
       <Plane
-        position={[0, bounds[1] + 18, 10]}
+        position={[0, bounds[1] + 15, 10]}
         scale={[200, 30, 1]}
         args={[0, 0, 1, 1]}
       >

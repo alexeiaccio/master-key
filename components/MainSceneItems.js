@@ -17,7 +17,7 @@ function Loader({ item }) {
         <meshPhongMaterial attach="material" wireframe />
       </Plane>
       <Html center scaleFactor={0.02} scale={[w, h, 1]} position={[x, y, 1]}>
-        <div className="font-sans text-center text-gray-700 whitespace-no-wrap">
+        <div className="text-center text-black whitespace-no-wrap">
           {progress.toFixed(2)}%
         </div>
       </Html>

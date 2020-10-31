@@ -8,7 +8,7 @@ import { useStore } from '../hooks/useStore'
 export default function ImageItem({ item, scale, index, ...props }) {
   const setScales = useStore((state) => state.setScales)
 
-  const FACTOR = 600
+  const FACTOR = 1200
   const [scW, scH, csZ] = scale
   const [map] = useLoader(TextureLoader, [item.src])
   const ratio = map.image.height / map.image.width

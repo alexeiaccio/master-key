@@ -1,17 +1,30 @@
 import { useStore } from '../hooks/useStore'
 
-export default function MasterKey() {
+import ImageItem from './ImageItem'
+
+export default function MasterKey(props) {
   const lang = useStore((state) => state.lang)
 
   return (
-    <div
-      className="bg-contain bg-no-repeat h-full w-full"
-      style={{
-        backgroundImage: `url(/textures/logo${lang}.png)`,
+    <ImageItem
+      item={{
+        src: `/textures/logo${lang}.png`,
       }}
+      scale={[0.35, 0.35, 1]}
+      index={100}
+      {...props}
     />
   )
 }
+
+/* 
+<div
+  className="w-full h-full bg-no-repeat bg-contain"
+  style={{
+    backgroundImage: `url(/textures/logo${lang}.png)`,
+  }}
+/>
+*/
 
 /* <svg
     height="100%"

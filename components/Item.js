@@ -6,6 +6,7 @@ import ImageItem from './ImageItem'
 import VideoItem from './VideoItem'
 import TextItem from './TextItem'
 import Text from './Text'
+import MasterKey from './MasterKey'
 
 export default function Item({ item }) {
   const { index, position } = item
@@ -56,14 +57,12 @@ export default function Item({ item }) {
   }
   if (item && item.type === 'about') {
     return (
-      <Html
-        center
-        scaleFactor={0.02}
-        scale={[w || scW, h || scH, csZ]}
-        position={[x, y, 1]}
-      >
-        <Text />
-      </Html>
+      <group scale={[w || scW, h || scH, csZ]} position={[x - 3.25, y + 4.37, 1]}>
+        <MasterKey />
+        <Html scaleFactor={0.02}>
+          <Text />
+        </Html>
+      </group>
     )
   }
 

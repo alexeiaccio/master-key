@@ -1,12 +1,23 @@
 import { useRef } from 'react'
 import { useFrame } from 'react-three-fiber'
 
-export function useTurnable(axis) {
+export function useTurnable(axis, rotationLimits) {
   const ref = useRef()
+  const up = useRef(true)
 
   useFrame(() => {
     if (axis) {
-      ref.current.rotation[axis] += 0.01
+      if (rotationLimits) {
+        const current = ref.current.rotation[axis]
+        if (up.current && current >= Math.PI / 2) {
+          up.current = false
+        } else if (!up.current && current <= 0) {
+          up.current = true
+        }
+        ref.current.rotation[axis] = up.current ? current + Math.PI / 90 : current - Math.PI / 90
+      } else {
+        ref.current.rotation[axis] += Math.PI / 90
+      }
     }
   })
 

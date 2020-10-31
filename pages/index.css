@@ -4,6 +4,7 @@
 
 body {
   @apply w-screen h-screen bg-theme;
+  font-family: 'PTMono' monospace;
 }
 
 canvas {

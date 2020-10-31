@@ -36,6 +36,20 @@ export default function TextItem({ item, scale, index, ...props }) {
       >
         {text}
       </Text>
+      <Text
+        color={'#000'}
+        fontSize={0.2}
+        maxWidth={14}
+        lineHeight={1.2}
+        letterSpacing={0.05}
+        textAlign={'left'}
+        font={`/fonts/${item.font}`}
+        anchorX="center"
+        anchorY="middle"
+      >
+
+        https://runescape.fandom.com/wiki/One_Small_Favour
+      </Text>
     </group>
   )
 }

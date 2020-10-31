@@ -13,7 +13,6 @@ export default function Text() {
             border: 2px solid #4a5568;
             border-radius: 4px;
             font-size: 1rem;
-            font-family: serif;
             margin: 0 1rem;
             overflow: scroll;
             width: 40rem;
@@ -21,6 +20,7 @@ export default function Text() {
             position: relative;
             padding: 0 1rem;
             cursor: default;
+            transform: translate(-16%, 10%);
           }
           .section {
             padding: 1rem 0;
@@ -95,11 +95,7 @@ export default function Text() {
             </div>
             <div>18.</div>
             <div>
-              <img
-                src="https://static.tildacdn.com/tild3261-3264-4533-b831-663964383038/Fishing_with_Net.gif"
-                width="204"
-                height="320"
-              />
+              <img src="/Fishing_with_Net.gif" width="204" height="320" />
             </div>
             <div>
               19. A net is a web, but also a sheet, a curtain, a border, a
@@ -115,10 +111,7 @@ export default function Text() {
             <div>24. A keyhole in a bow</div>
             <div>25. </div>
             <div>
-              <img
-                src="https://thumb.tildacdn.com/tild3936-3464-4435-a562-353461613532/-/resize/80x/-/format/webp/photo.png"
-                width="164px"
-              />
+              <img src="/666.png" width="67" height="85" />
             </div>
             <div>26. To catch and be caught</div>
             <div>
@@ -158,10 +151,7 @@ export default function Text() {
               <div>37. Where are we?</div>
               <div>38.</div>
               <div>
-                <img
-                  src="https://thumb.tildacdn.com/tild3337-3464-4635-a235-306266313535/-/resize/400x/-/format/webp/photo.png"
-                  width="100%"
-                />
+                <img src="/999.png" width="300" height="277" />
               </div>
               <div>
                 39. “We just need to go a little further,” said Camier, “until
@@ -274,11 +264,7 @@ export default function Text() {
             </div>
             <div>18.</div>
             <div>
-              <img
-                src="https://static.tildacdn.com/tild3261-3264-4533-b831-663964383038/Fishing_with_Net.gif"
-                width="204"
-                height="320"
-              />
+              <img src="/Fishing_with_Net.gif" width="204" height="320" />
             </div>
             <div>
               19. Сеть&nbsp;— паутина, но&nbsp;ещё и&nbsp;пелена, завеса,
@@ -294,10 +280,7 @@ export default function Text() {
             <div>24. Замочная скважина&nbsp;— в&nbsp;бантике</div>
             <div>25.</div>
             <div>
-              <img
-                src="https://thumb.tildacdn.com/tild3936-3464-4435-a562-353461613532/-/resize/80x/-/format/webp/photo.png"
-                width="164px"
-              />
+              <img src="/666.png" width="67" height="85" />
             </div>
             <div>26. Поймать, и&nbsp;быть пойманным</div>
             <div>
@@ -347,10 +330,7 @@ export default function Text() {
             <div>37. Где мы?</div>
             <div>38.</div>
             <div>
-              <img
-                src="https://thumb.tildacdn.com/tild3337-3464-4635-a235-306266313535/-/resize/400x/-/format/webp/photo.png"
-                width="100%"
-              />
+              <img src="/999.png" width="300" height="277" />
             </div>
             <div>
               39.

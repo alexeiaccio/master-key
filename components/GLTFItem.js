@@ -13,7 +13,7 @@ const ROTATION = {
 }
 
 export default function GLTFItem({ item, ...props }) {
-  const ref = useTurnable(item.axis)
+  const ref = useTurnable(item.axis, item.rotationLimits)
   const { scene } = useGLTF(`/glb/${item.src}`, true)
 
   return (
@@ -23,8 +23,17 @@ export default function GLTFItem({ item, ...props }) {
           <primitive object={scene} dispose={null} />
         </group>
       </group>
-      <directionalLight position={[2, 2, 4]} intensity={0.2} />
-      <directionalLight position={[-2, -2, 4]} intensity={0.2} />
+        <directionalLight
+          position={[1, 1, 5]}
+          intensity={0.2}
+          color={0xe6fffa}
+          castShadow
+        />
+      <directionalLight
+        position={[-2, -2, 0]}
+        intensity={0.05}
+        color={0x63b3ed}
+      />
     </group>
   )
 }

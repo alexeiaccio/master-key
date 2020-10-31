@@ -1,5 +1,5 @@
 import { useStore } from '../hooks/useStore'
-import MasterKey from './MasterKey'
+import Info from './Info'
 
 export default function Header() {
   const soundOn = useStore((state) => state.soundOn)
@@ -13,11 +13,11 @@ export default function Header() {
       className="absolute inset-0 bottom-auto flex flex-row items-center justify-between p-4 font-mono text-sm"
       style={{ zIndex: 15940005 }}
     >
-      <h1 className="w-32 h-8 text-black">
-        <MasterKey />
-      </h1>
+      <div className="relative ml-auto">
+        <Info />
+      </div>
       <div
-        className="ml-auto font-sans text-gray-700 cursor-pointer"
+        className="ml-4 text-black cursor-pointer"
         style={{
           textDecoration: !soundOn ? 'line-through' : 'none',
         }}
@@ -32,9 +32,9 @@ export default function Header() {
           : 'звук: выкл'}
       </div>
       <div
-        className={`ml-4 font-sans text-gray-700 flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${
+        className={`ml-4  text-black flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${
           lang === 'eng'
-            ? 'border-gray-700'
+            ? 'border-black'
             : 'cursor-pointer border-transparent'
         }`}
         onClick={lang === 'rus' ? toggleLang : noop}
@@ -42,9 +42,9 @@ export default function Header() {
         eng
       </div>
       <div
-        className={`font-sans text-gray-700 flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${
+        className={` text-black flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${
           lang === 'rus'
-            ? 'border-gray-700'
+            ? 'border-black'
             : 'cursor-pointer border-transparent'
         }`}
         onClick={lang === 'eng' ? toggleLang : noop}
