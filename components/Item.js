@@ -3,6 +3,7 @@ import { useAspect, Plane, Html } from '@react-three/drei'
 import GifItem from './GifItem'
 import GLTFItem from './GLTFItem'
 import ImageItem from './ImageItem'
+import AudioItem from './AudioItem'
 import VideoItem from './VideoItem'
 import TextItem from './TextItem'
 import Text from './Text'
@@ -26,6 +27,16 @@ export default function Item({ item }) {
   if (item && item.type === 'gif') {
     return (
       <GifItem
+        index={index}
+        item={item}
+        scale={[w || scW, h || scH, csZ]}
+        position={[x, y, 1]}
+      />
+    )
+  }
+  if (item && item.type === 'audio') {
+    return (
+      <AudioItem
         index={index}
         item={item}
         scale={[w || scW, h || scH, csZ]}

@@ -188,8 +188,7 @@
     "index": 30,
     "position": [35, -23, 10, 10],
     "type": "video",
-    "src": "/textures/030.mp4",
-    "sound": "/textures/030.mp3"
+    "src": "/textures/030.mp4"
   },
   {
     "index": 31,
@@ -321,8 +320,7 @@
     "index": 52,
     "position": [2, -38, 10, 10],
     "type": "video",
-    "src": "/textures/052.mp4",
-    "sound": "/textures/052.mp3"
+    "src": "/textures/052.mp4"
   },
   {
     "index": 53,
@@ -404,5 +402,19 @@
     "position": [-76, 17, 10, 10],
     "type": "image",
     "src": "/textures/066.png"
+  },
+  {
+    "index": 67,
+    "position": [35, -23, 10, 10],
+    "type": "audio",
+    "sound": "/textures/030.mp3",
+    "distance": 2
+  },
+  {
+    "index": 68,
+    "position": [2, -38, 10, 10],
+    "type": "audio",
+    "sound": "/textures/052.mp3",
+    "distance": 20
   }
 ]
