@@ -62,8 +62,10 @@ export default function Scene(props) {
           <Minimap {...props} />
         </div>
       </div>
-      <Footer />
-      <Header />
+      <div className="hidden md:block">
+        <Footer />
+        <Header />
+      </div>
       {!started ? (
         <div
           className={`absolute inset-0 flex-col items-center justify-center hidden space-y-8 text-black md:flex bg-theme ${
@@ -85,6 +87,31 @@ export default function Scene(props) {
           ) : null}
         </div>
       ) : null}
+      <div className="absolute inset-0 flex flex-col items-center justify-center space-y-8 text-xl text-black bg-theme md:hidden">
+        <div className="w-24">
+          <img
+            src="/textures/002.png"
+            width="297"
+            height="518"
+            className="w-full"
+            alt="Master Key"
+          />
+        </div>
+        <div className="px-8">
+          <img
+            src="/textures/logoeng.png"
+            width="792"
+            height="212"
+            className="w-full"
+            alt="Master Key"
+          />
+        </div>
+        <div className="px-8 text-center">
+          This page is optimised for desktop.
+          <br />
+          You are welcome to wander in from any desktop device.
+        </div>
+      </div>
     </div>
   )
 }

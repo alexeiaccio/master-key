@@ -98,7 +98,12 @@ export default function Text() {
           <p>
             18.{' '}
             <p>
-              <img src="/Fishing_with_Net.gif" width="204" height="320" />
+              <img
+                src="/Fishing_with_Net.gif"
+                width="204"
+                height="320"
+                alt="Master Key"
+              />
             </p>
           </p>
           <p>
@@ -117,7 +122,7 @@ export default function Text() {
           <p>
             25.
             <p>
-              <img src="/666.png" width="67" height="85" />
+              <img src="/666.png" width="67" height="85" alt="Master Key" />
             </p>
           </p>
           <p>
@@ -163,7 +168,7 @@ export default function Text() {
           <p>
             38.{' '}
             <p>
-              <img src="/999.png" width="300" height="277" />
+              <img src="/999.png" width="300" height="277" alt="Master Key" />
             </p>
           </p>
           <p>
@@ -283,7 +288,12 @@ export default function Text() {
           <p>
             18.{' '}
             <p>
-              <img src="/Fishing_with_Net.gif" width="204" height="320" />
+              <img
+                src="/Fishing_with_Net.gif"
+                width="204"
+                height="320"
+                alt="Master Key"
+              />
             </p>
           </p>
           <p>
@@ -301,7 +311,7 @@ export default function Text() {
           <p>
             25.{' '}
             <p>
-              <img src="/666.png" width="67" height="85" />
+              <img src="/666.png" width="67" height="85" alt="Master Key" />
             </p>
           </p>
           <p>26. Поймать, и&nbsp;быть пойманным</p>
@@ -346,7 +356,7 @@ export default function Text() {
           <p>
             38.{' '}
             <p>
-              <img src="/999.png" width="300" height="277" />
+              <img src="/999.png" width="300" height="277" alt="Master Key" />
             </p>
           </p>
           <p>
