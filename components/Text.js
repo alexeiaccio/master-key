@@ -409,9 +409,6 @@ export default function Text() {
             **Беккет С. Мерсье и&nbsp;Камье&nbsp;/ Пер.&nbsp;с&nbsp;фр.
             Баевская&nbsp;Е.&nbsp;М.: Текст, 2013. Стр.&nbsp;129
           </p>
-          <div>
-            <br />
-          </div>
         </div>
       )}
     </div>
