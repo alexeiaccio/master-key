@@ -201,7 +201,7 @@ export default function Text() {
             Translated by&nbsp;Joan Brooks
           </p>
           <p>
-            *In&nbsp;Russian, “kluch” means both “key” or&nbsp;“spring/geyser.”
+            *In&nbsp;Russian, “kluch” means both “key” and&nbsp;“spring/geyser.”
             <br />
             **A&nbsp;statics term introduced to&nbsp;me&nbsp;by&nbsp;fellow
             artist Natalia Tikhonova.
@@ -210,7 +210,7 @@ export default function Text() {
             mentioned in&nbsp;either Beckett’s English version of&nbsp;Mercier
             and Camier or&nbsp;in&nbsp;the original French, we&nbsp;have
             translated this passage from Elena Baevskaya’s translation
-            of&nbsp;the novel into Russia. (Беккет С. Мерсье и&nbsp;Камье&nbsp;/
+            of&nbsp;the novel into Russian. (Беккет С. Мерсье и&nbsp;Камье&nbsp;/
             Пер.&nbsp;с&nbsp;фр. Баевская&nbsp;Е.&nbsp;М.: Текст, 2013.
             Стр.&nbsp;129).
           </p>
