@@ -56,7 +56,7 @@ export default function MainSceneManager({ items }) {
     if (positionX > (bounds?.[2] || 0)) {
       moveToLeft()
     }
-    if (positionX < (bounds?.[0] || 0) + 5) {
+    if (positionX < (bounds?.[0] || 0)) {
       moveToRight()
     }
     if (positionY > (bounds?.[1] || 0) + height * 0.001) {
