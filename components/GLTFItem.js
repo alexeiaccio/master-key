@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { useGLTF } from '@react-three/drei/useGLTF'
 
 import { useTurnable } from '../hooks/useTurnable'

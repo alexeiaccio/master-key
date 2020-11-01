@@ -315,8 +315,7 @@
     "src": "Table.glb",
     "scale": 0.075,
     "rotation": "-y",
-    "axis": "y",
-    "rotationLimits": true
+    "axis": "y"
   },
   {
     "index": 52,

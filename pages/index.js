@@ -47,8 +47,8 @@ export default function Index({ items }) {
   const title = lang === 'rus' ? 'Мастер Ключ' : 'Master Key'
   const description =
     lang === 'rus'
-      ? 'Работа была выполнена для выставки «Я не знаю, Земля кружится или нет…», кураторы которой — Франческа Альтамура и Лизавета Матвеева, для VII Московской международной биеннале молодого искусства.'
-      : 'This work was commissioned for the exhibition “I don’t know whether the Earth is spinning or not...”, curated by Francesca Altamura and Lizaveta Matveeva for the VII Moscow International Biennale for Young Art.'
+      ? 'Проект Саши Зубрицкой “Мастер Ключ” в рамках выставки «Я не знаю, Земля кружится или нет…»,  VII Московская международная биеннале молодого искусства. Смешанная техника в цифровой среде.'
+      : 'Sasha Zubritskaya, Master Key. Digital mixed-media. “I don’t know whether the Earth is spinning or not...” exhibition, VII Moscow International Biennale for Young Art.'
 
   return (
     <>

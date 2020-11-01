@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { Canvas } from 'react-three-fiber'
 import { MapControls, Environment } from '@react-three/drei'
-import { StandardEffects } from 'drei'
+// import { StandardEffects } from 'drei'
 
 import MainSceneItems from './MainSceneItems'
 import MainSceneManager from './MainSceneManager'

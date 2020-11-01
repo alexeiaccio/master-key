@@ -23,19 +23,11 @@ export default function Header() {
         }}
         onClick={toggleSound}
       >
-        {soundOn
-          ? lang === 'eng'
-            ? 'sound: on'
-            : 'звук: вкл'
-          : lang === 'eng'
-          ? 'sound: off'
-          : 'звук: выкл'}
+        {soundOn ? 'sound: on' : 'sound: off'}
       </div>
       <div
         className={`ml-4  text-black flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${
-          lang === 'eng'
-            ? 'border-black'
-            : 'cursor-pointer border-transparent'
+          lang === 'eng' ? 'border-black' : 'cursor-pointer border-transparent'
         }`}
         onClick={lang === 'rus' ? toggleLang : noop}
       >
@@ -43,9 +35,7 @@ export default function Header() {
       </div>
       <div
         className={` text-black flex items-center justify-center w-10 h-10 border-2 border-solid rounded-full ${
-          lang === 'rus'
-            ? 'border-black'
-            : 'cursor-pointer border-transparent'
+          lang === 'rus' ? 'border-black' : 'cursor-pointer border-transparent'
         }`}
         onClick={lang === 'eng' ? toggleLang : noop}
       >

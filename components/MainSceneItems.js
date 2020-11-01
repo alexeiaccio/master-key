@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react'
 import { useFrame, useThree } from 'react-three-fiber'
-import { Html, useProgress, Plane } from '@react-three/drei'
+import { Html, useProgress } from '@react-three/drei'
 import dynamic from 'next/dynamic'
 
 import { useStore } from '../hooks/useStore'
@@ -12,16 +12,11 @@ function Loader({ item }) {
   const { position } = item
   const [x, y, w, h] = position
   return (
-    <group>
-      <Plane scale={[w, h, 1]} args={[0, 0, 1, 1]} position={[x, y, 1]}>
-        <meshBasicMaterial attach="material" wireframe />
-      </Plane>
-      <Html center scaleFactor={0.02} scale={[w, h, 1]} position={[x, y, 1]}>
-        <div className="text-center text-black whitespace-no-wrap">
-          {progress.toFixed(2)}%
-        </div>
-      </Html>
-    </group>
+    <Html center scaleFactor={0.02} scale={[w, h, 1]} position={[x, y, 1]}>
+      <div className="text-center text-black whitespace-no-wrap">
+        {progress.toFixed(2)}%
+      </div>
+    </Html>
   )
 }
 
