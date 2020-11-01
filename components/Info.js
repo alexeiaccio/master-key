@@ -27,9 +27,16 @@ export default function Info() {
             <>
               <div>Sasha Zubritskaya, Master Key. 2019-2020</div>
               <div>
-                Commissioned for the exhibition “I don’t know whether the Earth
-                is spinning or not...”, curated by Francesca Altamura and
-                Lizaveta Matveeva for the{' '}
+                Commissioned for the exhibition{' '}
+                <a
+                  className="text-blue-700"
+                  href="https://www.notspinning.world/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  “I don’t know whether the Earth is spinning or not...”
+                </a>
+                , curated by Francesca Altamura and Lizaveta Matveeva for the{' '}
                 <a
                   className="text-blue-700"
                   href="http://youngart.ru"
@@ -53,7 +60,25 @@ export default function Info() {
                 of the artist.
               </div>
               <div>
-                Translations: Joan Brooks (rus-eng) and Nikita Safonov (eng-rus)
+                Translations:{' '}
+                <a
+                  className="text-blue-700"
+                  href="https://joan-brooks.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Joan Brooks
+                </a>{' '}
+                (rus-eng) and{' '}
+                <a
+                  className="text-blue-700"
+                  href="https://www.instagram.com/territorealist/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Nikita Safonov
+                </a>{' '}
+                (eng-rus)
               </div>
               <div>
                 Website:{' '}
@@ -71,8 +96,16 @@ export default function Info() {
             <>
               <div>Саша Зубрицкая, Мастер Ключ. 2019-2020</div>
               <div>
-                Работа была выполнена для выставки «Я не знаю, Земля кружится
-                или нет…», кураторы: Франческа Альтамура и Лизавета Матвеева,
+                Работа была выполнена для выставки{' '}
+                <a
+                  className="text-blue-700"
+                  href="https://www.notspinning.world/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  «Я не знаю, Земля кружится или нет…»
+                </a>
+                , кураторы: Франческа Альтамура и Лизавета Матвеева,{' '}
                 <a
                   className="text-blue-700"
                   href="http://youngart.ru"
@@ -98,7 +131,25 @@ export default function Info() {
                 является собственностью художницы.
               </div>
               <div>
-                Переводы: Joan Brooks (рус-англ) и Никита Сафонов (англ-рус)
+                Переводы:{' '}
+                <a
+                  className="text-blue-700"
+                  href="https://joan-brooks.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Joan Brooks
+                </a>{' '}
+                (рус-англ) и{' '}
+                <a
+                  className="text-blue-700"
+                  href="https://www.instagram.com/territorealist/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Никита Сафонов
+                </a>{' '}
+                (англ-рус)
               </div>
               <div>
                 Сайт:{' '}

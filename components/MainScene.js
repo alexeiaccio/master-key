@@ -23,7 +23,7 @@ export default function MainScene({ items }) {
         pixelRatio={2}
       >
         <color attach="background" args={[0xfff389]} />
-        <ambientLight intensity={0.99} />
+        <ambientLight intensity={0.9} />
         <Suspense>
           <MainSceneBorders />
           <MainSceneItems items={items} />

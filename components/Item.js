@@ -55,7 +55,7 @@ export default function Item({ item }) {
     )
   }
   if (item && item.type === 'object') {
-    return <GLTFItem index={index} item={item} position={[x, y, 1]} />
+    return <GLTFItem index={index} item={item} position={[x, y, 10]} />
   }
   if (item && item.type === 'text') {
     return (
