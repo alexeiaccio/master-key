@@ -36,16 +36,11 @@ export default function GifItem({ item, scale, index, ...props }) {
   )
 
   return loaded.current < 100 ? (
-    <group>
-      <Plane scale={[w, h, 1]} args={[0, 0, 1, 1]} {...props}>
-        <meshPhongMaterial attach="material" wireframe />
-      </Plane>
-      <Html center scaleFactor={0.02} scale={[w, h, 1]} {...props}>
-        <div className="text-center text-black whitespace-no-wrap">
-          {loaded.current.toFixed(2)}%
-        </div>
-      </Html>
-    </group>
+    <Html center scaleFactor={0.02} scale={[w, h, 1]} {...props}>
+      <div className="text-center text-black whitespace-no-wrap">
+        {loaded.current.toFixed(2)}%
+      </div>
+    </Html>
   ) : (
     <Plane scale={[w * 2, h * 2, csZ]} args={[0, 0, 1, 1]} {...props}>
       <meshBasicMaterial
