@@ -11,7 +11,6 @@ export default function MainScene({ items }) {
   return (
     <>
       <Canvas
-        concurrent
         orthographic
         colorManagement={false}
         camera={{

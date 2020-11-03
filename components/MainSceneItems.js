@@ -40,7 +40,10 @@ export default function Items({ items }) {
 
   return items.map((item) =>
     item ? (
-      <Suspense fallback={<Loader key={`item-${item.index}`} item={item} />}>
+      <Suspense
+        key={`item-${item.index}`}
+        fallback={<Loader key={`item-${item.index}`} item={item} />}
+      >
         <Item key={`item-${item.index}`} item={item} />
       </Suspense>
     ) : null

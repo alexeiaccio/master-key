@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useProgress } from '@react-three/drei'
+// import { useProgress } from '@react-three/drei'
 
 import { useStore } from '../hooks/useStore'
 import Header from './Header'
@@ -19,7 +19,7 @@ function launchFullScreen(element) {
 }
 
 export default function Scene(props) {
-  const progress = useProgress((state) => state.progress)
+  // const progress = useProgress((state) => state.progress)
   const started = useStore((state) => state.started)
   const start = useStore((state) => state.start)
   const zoom = useStore((state) => state.zoom)
@@ -47,46 +47,41 @@ export default function Scene(props) {
 
   return (
     <div className="fixed w-screen h-screen">
-      <div className="absolute hidden w-full h-full md:block cursor-grab">
-        <MainScene {...props} />
-        {zoom !== 50 ? <div className="absolute inset-0" /> : null}
-      </div>
-      <div
-        className="fixed bottom-0 right-0 flex-row items-end justify-end hidden m-4 md:flex w-screen-20 h-screen-20"
-        style={{ zIndex: 99999999999 }}
-      >
-        <div className="relative border-2 border-gray-700 border-solid rounded-sm">
-          <div className="absolute inset-0">
-            <HeatMap />
-          </div>
-          <Minimap {...props} />
-        </div>
-      </div>
-      <div className="hidden md:block">
-        <Footer />
-        <Header />
-      </div>
       {!started ? (
         <div
-          className={`absolute inset-0 flex-col items-center justify-center hidden space-y-8 text-black md:flex bg-theme ${
-            progress > 90 && 'cursor-pointer'
-          }`}
-          onClick={progress > 90 ? handleStart : noop}
+          className="absolute inset-0 flex-col items-center justify-center hidden space-y-8 text-black cursor-pointer md:flex bg-theme"
+          onClick={handleStart}
           style={{ zIndex: 99999999999999 }}
         >
           <img src="/666.png" width="67" height="85" />
-          <div>
-            {'LOADING... '}
-            {progress.toFixed(2)}%
+          <div className="text-center">
+            <div>CLICK ANYWHERE</div>
+            <div>TO ENTER FULLSCREEN</div>
           </div>
-          {progress > 90 ? (
-            <div className="text-center">
-              <div>CLICK ANYWHERE</div>
-              <div>TO ENTER FULLSCREEN</div>
-            </div>
-          ) : null}
         </div>
-      ) : null}
+      ) : (
+        <>
+          <div className="absolute hidden w-full h-full md:block cursor-grab">
+            <MainScene {...props} />
+            {zoom !== 50 ? <div className="absolute inset-0" /> : null}
+          </div>
+          <div
+            className="fixed bottom-0 right-0 flex-row items-end justify-end hidden m-4 md:flex w-screen-20 h-screen-20"
+            style={{ zIndex: 99999999999 }}
+          >
+            <div className="relative border-2 border-gray-700 border-solid rounded-sm">
+              <div className="absolute inset-0">
+                <HeatMap />
+              </div>
+              <Minimap {...props} />
+            </div>
+          </div>
+          <div className="hidden md:block">
+            <Footer />
+            <Header />
+          </div>
+        </>
+      )}
       <div className="absolute inset-0 flex flex-col items-center justify-center space-y-8 text-xl text-black bg-theme md:hidden">
         <div className="w-24">
           <img
