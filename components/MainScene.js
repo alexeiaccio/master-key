@@ -11,6 +11,7 @@ export default function MainScene({ items }) {
   return (
     <>
       <Canvas
+        concurrent
         orthographic
         colorManagement={false}
         camera={{
@@ -24,25 +25,22 @@ export default function MainScene({ items }) {
       >
         <color attach="background" args={[0xfff389]} />
         <ambientLight intensity={0.9} />
-        <Suspense>
+        <Suspense fallback={null}>
           <MainSceneBorders />
           <MainSceneItems items={items} />
           <MainSceneManager items={items} />
-          <Suspense fallback={null}>
-            <Environment
-              background={false}
-              files={[
-                '061.png',
-                '062.png',
-                '056.png',
-                '052.png',
-                '030.png',
-                '024.png',
-              ]}
-              path={'/textures/'}
-            />
-            {/* <StandardEffects /> */}
-          </Suspense>
+          <Environment
+            background={false}
+            files={[
+              '061.png',
+              '062.png',
+              '056.png',
+              '052.png',
+              '030.png',
+              '024.png',
+            ]}
+            path={'/textures/'}
+          />
           <MapControls
             enableDamping={false}
             enableZoom={false}

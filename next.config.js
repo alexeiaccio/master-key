@@ -5,6 +5,10 @@ const withTM = require('next-transpile-modules')([
 ])
 
 module.exports = withTM({
+  experimental: {
+    reactMode: 'concurrent'
+  },
+  reactStrictMode: true,
   target: 'serverless',
   async rewrites() {
     return [
