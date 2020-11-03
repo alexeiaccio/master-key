@@ -23,7 +23,7 @@ export default function MainScene({ items }) {
         pixelRatio={2}
       >
         <color attach="background" args={[0xfff389]} />
-        <ambientLight intensity={0.9} />
+        <ambientLight intensity={0.2} />
         <Suspense fallback={null}>
           <MainSceneBorders />
           <MainSceneItems items={items} />
@@ -31,12 +31,12 @@ export default function MainScene({ items }) {
           <Environment
             background={false}
             files={[
-              '061.png',
-              '062.png',
-              '056.png',
-              '052.png',
               '030.png',
-              '024.png',
+              '030.png',
+              '030.png',
+              '030.png',
+              '030.png',
+              '030.png',
             ]}
             path={'/textures/'}
           />

@@ -17,33 +17,17 @@ export default function GLTFItem({ item, index, position }) {
   const { scene } = useGLTF(`/glb/${item.src}`, true)
 
   return (
-    <group>
-      <group scale={[item.scale, item.scale, item.scale]} position={position}>
-        <group rotation={ROTATION[item.rotation]}>
-          <group ref={ref}>
-            <primitive object={scene} dispose={null} castShadow receiveShadow />
-          </group>
+    <group scale={[item.scale, item.scale, item.scale]} position={position}>
+      <group rotation={ROTATION[item.rotation]}>
+        <group ref={ref}>
+          <primitive object={scene} dispose={null} castShadow receiveShadow />
         </group>
+        <directionalLight
+          position={[position[0] + 2, position[1] + 2, 500]}
+          intensity={0.5}
+        />
       </group>
-      <fog attach="fog" args={['white', 0, 40]} />
-      {/* <ambientLight intensity={0.05} /> */}
-      <pointLight
-        intensity={0.1}
-        color={0x2b6cb0}
-        position={[position[0] - 40, position[1] - 2, 5]}
-      />
-      <directionalLight
-        castShadow
-        position={[position[0] + 2, position[1] + 2, 500]}
-        intensity={0.1}
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-        shadow-camera-far={50}
-        shadow-camera-left={-1000}
-        shadow-camera-right={1000}
-        shadow-camera-top={1000}
-        shadow-camera-bottom={-1000}
-      />
+      <fog attach="fog" args={['white', 10, 60]} />
     </group>
   )
 }
