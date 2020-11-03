@@ -6,6 +6,7 @@ import { MapControls, Environment } from '@react-three/drei'
 import MainSceneItems from './MainSceneItems'
 import MainSceneManager from './MainSceneManager'
 import MainSceneBorders from './MainSceneBorders'
+import { GITHUB } from '../lib/GITHUB'
 
 export default function MainScene({ items }) {
   return (
@@ -23,7 +24,7 @@ export default function MainScene({ items }) {
         pixelRatio={2}
       >
         <color attach="background" args={[0xfff389]} />
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.4} />
         <Suspense fallback={null}>
           <MainSceneBorders />
           <MainSceneItems items={items} />
@@ -38,7 +39,7 @@ export default function MainScene({ items }) {
               '030.png',
               '030.png',
             ]}
-            path={'/textures/'}
+            path={`${GITHUB}/textures/`}
           />
           <MapControls
             enableDamping={false}

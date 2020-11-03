@@ -4,13 +4,14 @@ import { Plane } from '@react-three/drei'
 import { useLoader } from 'react-three-fiber'
 
 import { useStore } from '../hooks/useStore'
+import { GITHUB } from '../lib/GITHUB'
 
 export default function ImageItem({ item, scale, index, ...props }) {
   const setScales = useStore((state) => state.setScales)
 
   const FACTOR = 1200
   const [scW, scH, csZ] = scale
-  const [map] = useLoader(TextureLoader, [item.src])
+  const [map] = useLoader(TextureLoader, [`${GITHUB}${item.src}?raw=true`])
   const ratio = map.image.height / map.image.width
   const isVertical = ratio > 1
   const h = map && map.image ? ratio * scW : scH

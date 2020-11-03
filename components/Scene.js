@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 // import { useProgress } from '@react-three/drei'
 
+import { GITHUB } from '../lib/GITHUB'
 import { useStore } from '../hooks/useStore'
 import Header from './Header'
 import HeatMap from './HeatMap'
@@ -85,7 +86,7 @@ export default function Scene(props) {
       <div className="absolute inset-0 flex flex-col items-center justify-center space-y-8 text-xl text-black bg-theme md:hidden">
         <div className="w-24">
           <img
-            src="/textures/002.png"
+            src={`${GITHUB}/textures/002.png`}
             width="297"
             height="518"
             className="w-full"
@@ -94,7 +95,7 @@ export default function Scene(props) {
         </div>
         <div className="px-8">
           <img
-            src="/textures/logoeng.png"
+            src={`${GITHUB}/textures/logoeng.png`}
             width="792"
             height="212"
             className="w-full"

@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { LinearFilter, RGBFormat } from 'three'
 
 import { useStore } from '../hooks/useStore'
+import { GITHUB } from '../lib/GITHUB'
 
 export default function VideoItem({ item, scale, index, ...props }) {
   const setScales = useStore((state) => state.setScales)
@@ -9,7 +10,7 @@ export default function VideoItem({ item, scale, index, ...props }) {
   const [scW, _scH, csZ] = scale
   const video = useMemo(() => {
     const vid = document.createElement('video')
-    vid.src = item.src
+    vid.src = `${GITHUB}${item.src}?raw=true`
     vid.loop = true
     vid.muted = true
     vid.playInline = true

@@ -24,7 +24,7 @@ export default function MiniMapItems({ items }) {
   }, [width])
 
   const rect = useMemo(() => {
-    const factor = (minimapCamera.zoom / zoom) * 0.4
+    const factor = (minimapCamera.zoom / zoom) * 1200 / width
     return {
       x: positionX * factor,
       y: positionY * factor,

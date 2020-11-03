@@ -4,6 +4,7 @@ import { LinearFilter, RGBFormat } from 'three'
 
 import GifLoader from '../lib/gif-loader/gif-loader'
 import { useStore } from '../hooks/useStore'
+import { GITHUB } from '../lib/GITHUB'
 
 export default function GifItem({ item, scale, index, ...props }) {
   const setScales = useStore((state) => state.setScales)
@@ -16,7 +17,7 @@ export default function GifItem({ item, scale, index, ...props }) {
   const loader = new GifLoader()
 
   const map = loader.load(
-    item.src,
+    `${GITHUB}${item.src}?raw=true`,
     function read(reader) {
       const ratio = reader.height / reader.width
       const isVertical = ratio > 1

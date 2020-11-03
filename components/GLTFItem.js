@@ -1,6 +1,7 @@
 import { useGLTF } from '@react-three/drei/useGLTF'
 
 import { useTurnable } from '../hooks/useTurnable'
+import { GITHUB } from '../lib/GITHUB'
 
 const ROTATION = {
   0: [Math.PI / 2, 0, 0],
@@ -14,20 +15,16 @@ const ROTATION = {
 
 export default function GLTFItem({ item, index, position }) {
   const ref = useTurnable(item.axis, item.rotationLimits)
-  const { scene } = useGLTF(`/glb/${item.src}`, true)
+  const { scene } = useGLTF(`${GITHUB}/glb/${item.src}?raw=true`, true)
 
   return (
     <group scale={[item.scale, item.scale, item.scale]} position={position}>
       <group rotation={ROTATION[item.rotation]}>
         <group ref={ref}>
-          <primitive object={scene} dispose={null} castShadow receiveShadow />
+          <primitive object={scene} dispose={null} />
         </group>
-        <directionalLight
-          position={[position[0] + 2, position[1] + 2, 500]}
-          intensity={0.5}
-        />
+        <pointLight position={[10, 10, 10]} intensity={0.5} />
       </group>
-      <fog attach="fog" args={['white', 10, 60]} />
     </group>
   )
 }
