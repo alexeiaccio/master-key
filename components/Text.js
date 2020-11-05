@@ -9,14 +9,12 @@ export default function Text() {
         {`
           .text {
             color: #000;
-            background: linear-gradient(180deg, #fff, #fff389);
-            border: 2px solid #4a5568;
             border-radius: 4px;
-            font-size: 1rem;
-            margin: 0 1rem;
+            font-size: 0.85rem;
+            margin: 0 0.9rem;
             overflow: scroll;
-            width: 40rem;
-            height: 30rem;
+            width: 44rem;
+            height: 52rem;
             position: relative;
             padding: 0 1rem;
             cursor: default;
@@ -101,7 +99,7 @@ export default function Text() {
           </div>
           <div>
             18.{' '}
-            <div className="pl-10">
+            <div className="pb-4 pl-10">
               <img
                 src="/Fishing_with_Net.gif"
                 width="204"
@@ -127,7 +125,7 @@ export default function Text() {
           <div>24. A&nbsp;keyhole in&nbsp;a&nbsp;bow</div>
           <div>
             25.
-            <div className="pl-4">
+            <div className="pb-4 pl-4">
               <img src="/666.png" width="67" height="85" alt="Master Key" />
             </div>
           </div>
@@ -178,7 +176,7 @@ export default function Text() {
           </div>
           <div>
             38.{' '}
-            <div className="pl-8">
+            <div className="pb-4 pl-8">
               <img src="/999.png" width="300" height="277" alt="Master Key" />
             </div>
           </div>
@@ -304,7 +302,7 @@ export default function Text() {
           </div>
           <div>
             18.{' '}
-            <div className="pl-10">
+            <div className="pb-4 pl-10">
               <img
                 src="/Fishing_with_Net.gif"
                 width="204"
@@ -327,7 +325,7 @@ export default function Text() {
           <div>24. Замочная скважина&nbsp;— в&nbsp;бантике</div>
           <div>
             25.{' '}
-            <div className="pl-4">
+            <div className="pb-4 pl-4">
               <img src="/666.png" width="67" height="85" alt="Master Key" />
             </div>
           </div>
@@ -379,7 +377,7 @@ export default function Text() {
           <div>37. Где мы?</div>
           <div>
             38.{' '}
-            <div className="pl-8">
+            <div className="pb-4 pl-8">
               <img src="/999.png" width="300" height="277" alt="Master Key" />
             </div>
           </div>
