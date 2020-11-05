@@ -39,10 +39,12 @@ export default function Scene(props) {
 
   useEffect(() => {
     if (typeof window !== undefined) {
-      window.addEventListener('resize', () => {
-        console.log('resize')
-        zoomIn()
-      })
+      window.addEventListener('resize', zoomIn)
+      window.addEventListener('keypress', handleStart)
+    }
+    return () => {
+      window.removeEventListener('resize', zoomIn)
+      window.removeEventListener('keypress', handleStart)
     }
   }, [])
 
@@ -56,7 +58,7 @@ export default function Scene(props) {
         >
           <img src="/666.png" width="67" height="85" />
           <div className="text-center">
-            <div>CLICK ANYWHERE</div>
+            <div>PRESS ANY KEY</div>
             <div>TO ENTER FULLSCREEN</div>
           </div>
         </div>

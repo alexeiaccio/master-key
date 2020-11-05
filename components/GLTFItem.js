@@ -1,4 +1,5 @@
 import { useGLTF } from '@react-three/drei/useGLTF'
+import { Environment } from '@react-three/drei'
 
 import { useTurnable } from '../hooks/useTurnable'
 import { GITHUB } from '../lib/GITHUB'
@@ -22,8 +23,14 @@ export default function GLTFItem({ item, index, position }) {
       <group rotation={ROTATION[item.rotation]}>
         <group ref={ref}>
           <primitive object={scene} dispose={null} />
+          <fog color={0xffffff} />
+          <Environment
+            files={'venice_sunset_1k.hdr'}
+          />
+          <ambientLight intensity={0.1} color={0xbee3f8} />
+          <directionalLight position={[10, 10, 10]} intensity={0.2} />
+          <pointLight position={[-10, -10, -10]} intensity={0.1} />
         </group>
-        <pointLight position={[10, 10, 10]} intensity={0.5} />
       </group>
     </group>
   )

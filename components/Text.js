@@ -13,8 +13,12 @@ export default function Text() {
             font-size: 0.85rem;
             margin: 0 0.9rem;
             overflow: scroll;
-            width: 44rem;
-            height: 52rem;
+            width: 50vw;
+            height: 80vh;
+            min-width: 32rem;
+            max-width: 44rem;
+            min-height: 40rem;
+            max-height: 52rem;
             position: relative;
             padding: 0 1rem;
             cursor: default;
