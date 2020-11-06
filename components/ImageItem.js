@@ -11,7 +11,7 @@ export default function ImageItem({ item, scale, index, ...props }) {
 
   const FACTOR = 1200
   const [scW, scH, csZ] = scale
-  const [map] = useLoader(TextureLoader, [`${GITHUB}${item.src}?raw=true`])
+  const [map] = useLoader(TextureLoader, [`${GITHUB}${item.src}?no-cache=true`])
   const ratio = map.image.height / map.image.width
   const isVertical = ratio > 1
   const h = map && map.image ? ratio * scW : scH

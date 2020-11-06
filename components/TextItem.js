@@ -25,16 +25,12 @@ export default function TextItem({ item, scale, index, ...props }) {
               <div className="mb-8">
                 If you're new to Shilo Village after solving the mystery (or
                 even if you did it some time ago), you may like to check out
-                Yanni Salika's antiques shop.
-              </div>
-              <div className="mb-8">
+                Yanni Salika's antiques shop. <br />
                 He's a busy chap, revamping antique items, checking out new
                 stock from potential adventurers and maybe he'll have a small(1)
                 favour to ask of you? Probably nothing particularly large, Yanni
                 isn't a demanding(2) person, should hardly take you any time(3) at
-                all really, something to do when you have a spare moment.
-              </div>
-              <div className="mb-8">
+                all really, something to do when you have a spare moment. <br />
                 That's assuming there aren't any complications.
               </div>
               <div>
@@ -57,17 +53,13 @@ export default function TextItem({ item, scale, index, ...props }) {
               <div className="mb-8">
                 Если вы первый раз в деревне Шило — после того, как раскрыли
                 тайну (или спустя какое-то время после этого), то вам стоит
-                заглянуть в антикварную лавку Янни Салики.
-              </div>
-              <div className="mb-8">
+                заглянуть в антикварную лавку Янни Салики. <br />
                 Это очень деловой дядя — он латает антикварные предметы и
                 находит новые у тех, кто любит искать приключения. Может, он
                 попросит тебя оказать ему маленькую(1) любезность? Скорее всего,
                 что-то совсем несерьезное, Янни не взыскательный(2) человек,
                 вряд ли оно займет у тебя много времени(3), в общем, скорее
-                всего это что-то, что можно сделать на досуге.
-              </div>
-              <div className="mb-8">
+                всего это что-то, что можно сделать на досуге. <br />
                 Так что ничего сложного точно не будет.
               </div>
               <div>
