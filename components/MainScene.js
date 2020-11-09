@@ -30,6 +30,21 @@ export default function MainScene({ items }) {
             enableZoom={false}
             enableRotate={false}
           />
+          <fog color={0xffffff} />
+          <pointLight
+            position={[100, 50, 100]}
+            intensity={0.75}
+          />
+          <pointLight
+            position={[-100, -50, 100]}
+            intensity={1}
+          />
+          <hemisphereLight
+            position={[0, 80, 1]}
+            intensity={0.6}
+            color={0x77eeff}
+            groundColor={0xffaa00}
+          />
         </Suspense>
       </Canvas>
     </>

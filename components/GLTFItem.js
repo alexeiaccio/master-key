@@ -25,22 +25,15 @@ export default function GLTFItem({ item, index, position }) {
             <primitive object={scene} dispose={null} />
           </group>
         </group>
-        <fog color={0xffffff} />
       </group>
-      <directionalLight
+      {/* <directionalLight
         position={[position[0] + 10, position[1] + 10, 100]}
-        intensity={0.15}
+        intensity={0.1}
       />
       <directionalLight
         position={[position[0] - 30, position[1] - 10, 100]}
         intensity={0.1}
-      />
-      <hemisphereLight
-        position={[position[0], position[1] + 40, 1]}
-        intensity={0.2}
-        color={0x77eeff}
-        groundColor={0xffaa00}
-      />
+      /> */}
     </>
   )
 }
