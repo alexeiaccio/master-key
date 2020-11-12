@@ -58,8 +58,7 @@ export default function Scene(props) {
         >
           <img src="/666.png" width="67" height="85" />
           <div className="text-center">
-            <div>PRESS ANY KEY</div>
-            <div>TO ENTER FULLSCREEN</div>
+            <div>PRESS <em>ANY KEY</em></div>
           </div>
         </div>
       ) : (

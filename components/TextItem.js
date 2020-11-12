@@ -29,8 +29,9 @@ export default function TextItem({ item, scale, index, ...props }) {
                 He's a busy chap, revamping antique items, checking out new
                 stock from potential adventurers and maybe he'll have a small(1)
                 favour to ask of you? Probably nothing particularly large, Yanni
-                isn't a demanding(2) person, should hardly take you any time(3) at
-                all really, something to do when you have a spare moment. <br />
+                isn't a demanding(2) person, should hardly take you any time(3)
+                at all really, something to do when you have a spare moment.{' '}
+                <br />
                 That's assuming there aren't any complications.
               </div>
               <div>
@@ -41,6 +42,7 @@ export default function TextItem({ item, scale, index, ...props }) {
                 2: - In a recent vote, Yanni Salika was only voted the second
                 most demanding person in Shilo Village.
               </div>
+              <div>3: - As everyone knows, time is relative.</div>
               <div></div>
             </div>
           ) : (

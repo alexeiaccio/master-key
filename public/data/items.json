@@ -38,11 +38,9 @@
   {
     "index": 6,
     "position": [57, 7, 10, 10],
-    "type": "object",
-    "src": "ligher.glb",
-    "scale": 0.3,
-    "rotation": "-y",
-    "axis": "y"
+    "type": "gif",
+    "src": "/textures/006.gif",
+    "scale": 0.7
   },
   {
     "index": 7,
@@ -95,11 +93,9 @@
   {
     "index": 15,
     "position": [5, 21, 10, 10],
-    "type": "object",
-    "src": "cookieman.glb",
-    "scale": 0.7,
-    "rotation": "y",
-    "axis": "y"
+    "type": "gif",
+    "src": "/textures/015.gif",
+    "scale": 0.7
   },
   {
     "index": 16,
@@ -178,11 +174,9 @@
   {
     "index": 29,
     "position": [53, -7, 10, 10],
-    "type": "object",
-    "src": "STRAWBERRYSACK.glb",
-    "scale": 0.35,
-    "rotation": "-y",
-    "axis": "y"
+    "type": "gif",
+    "src": "/textures/029.gif",
+    "scale": 0.5
   },
   {
     "index": 30,
@@ -230,16 +224,15 @@
     "index": 37,
     "position": [-48, 24, 10, 10],
     "type": "gif",
-    "src": "/textures/037.gif"
+    "src": "/textures/037.gif",
+    "scale": 2
   },
   {
     "index": 38,
     "position": [-64, -27, 10, 10],
-    "type": "object",
-    "src": "humpty.glb",
-    "scale": 0.35,
-    "rotation": "-y",
-    "axis": "y"
+    "type": "gif",
+    "src": "/textures/038.gif",
+    "scale": 0.7
   },
   {
     "index": 39,
@@ -310,11 +303,9 @@
   {
     "index": 51,
     "position": [65, -3, 10, 10],
-    "type": "object",
-    "src": "table-spec0.glb",
-    "scale": 0.075,
-    "rotation": "-y",
-    "axis": "y"
+    "type": "gif",
+    "src": "/textures/051.gif",
+    "scale": 1.4
   },
   {
     "index": 52,
@@ -349,11 +340,9 @@
   {
     "index": 57,
     "position": [35, -39, 10, 10],
-    "type": "object",
-    "src": "flameprincess.glb",
-    "scale": 0.25,
-    "rotation": "-y",
-    "axis": "y"
+    "type": "gif",
+    "src": "/textures/057.gif",
+    "scale": 0.6
   },
   {
     "index": 58,

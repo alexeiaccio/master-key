@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useMemo } from 'react'
 import { Plane, Html } from '@react-three/drei'
 import { LinearFilter, RGBFormat } from 'three'
 
@@ -16,7 +16,7 @@ export default function GifItem({ item, scale, index, ...props }) {
 
   const loader = new GifLoader()
 
-  const map = loader.load(
+  const map = useMemo(() => loader.load(
     `${GITHUB}${item.src}?raw=true`,
     function read(reader) {
       const ratio = reader.height / reader.width
@@ -24,8 +24,8 @@ export default function GifItem({ item, scale, index, ...props }) {
       setW(isVertical ? scH / ratio : scW)
       setH(isVertical ? scH : ratio * scW)
       setScales(index, [
-        (isVertical ? scH / ratio : scW) * 1.5,
-        (isVertical ? scH : ratio * scW) * 1.5,
+        (isVertical ? scH / ratio : scW) * item.scale || 1,
+        (isVertical ? scH : ratio * scW) * item.scale || 1,
       ])
     },
     function pr(xhr) {
@@ -34,7 +34,7 @@ export default function GifItem({ item, scale, index, ...props }) {
     function cb() {
       console.error('An error happened.')
     }
-  )
+  ), [item])
 
   return loaded.current < 100 ? (
     <Html center scaleFactor={0.02} scale={[w, h, 1]} {...props}>
@@ -43,7 +43,7 @@ export default function GifItem({ item, scale, index, ...props }) {
       </div>
     </Html>
   ) : (
-    <Plane scale={[w * 2, h * 2, csZ]} args={[0, 0, 1, 1]} {...props}>
+    <Plane scale={[w * item.scale, h * item.scale, csZ]} args={[0, 0, 1, 1]} {...props}>
       <meshBasicMaterial
         minFilter={LinearFilter}
         magFilter={LinearFilter}
