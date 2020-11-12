@@ -209,6 +209,12 @@ export default function Text() {
             </em>
             ***
           </div>
+          <div>
+            <strong>
+              <br />
+              <br />
+            </strong>
+          </div>
           <div>Sasha Zubritskaya</div>
           <div>
             MASTER KEY
@@ -216,6 +222,11 @@ export default function Text() {
             2019
             <br />
             Translated by&nbsp;Joan Brooks
+          </div>
+          <div>
+            <strong>
+              <br />
+            </strong>
           </div>
           <div>
             *In&nbsp;Russian, “kluch” means both “key” and&nbsp;“spring/geyser.”
