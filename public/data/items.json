@@ -40,7 +40,7 @@
     "position": [57, 7, 10, 10],
     "type": "gif",
     "src": "/textures/006.gif",
-    "scale": 0.7
+    "scale": 0.8
   },
   {
     "index": 7,
@@ -176,7 +176,7 @@
     "position": [53, -7, 10, 10],
     "type": "gif",
     "src": "/textures/029.gif",
-    "scale": 0.5
+    "scale": 0.4
   },
   {
     "index": 30,
